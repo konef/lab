@@ -56,9 +56,9 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/token",
+					"raw": "http://epruryaw0341:8085/token",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"token"
@@ -168,9 +168,9 @@
 					"raw": "{\n  \"NativeName\": \"Яловенко Владимирa\",\n  \"Role\": 1,\n  \"OldPassword\": \"Xdager_0\",\n  \"Password\": \"Xdager_01\",\n  \"ConfirmPassword\": \"Xdager_01\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/user/6a4fdab80e9b40f7a23962403fbf9aac",
+					"raw": "http://epruryaw0341:8085/api/user/6a4fdab80e9b40f7a23962403fbf9aac",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -210,9 +210,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/user/6a4fdab80e9b40f7a23962403fbf9aac",
+					"raw": "http://epruryaw0341:8085/api/user/6a4fdab80e9b40f7a23962403fbf9aac",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -270,9 +270,9 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/maps",
+					"raw": "http://epruryaw0341:8085/api/maps",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -371,9 +371,9 @@
 					"raw": "{\r\n  \"Name\": \"alloww\",\r\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\r\n  \"SwitchTimeout\": 60000,\r\n  \"StartupTeamLives\": 1,\r\n  \"PoliceSpeed\": 4,\r\n  \"ThiefSpeed\": 5\r\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/game",
+					"raw": "http://epruryaw0341:8085/api/game",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -430,9 +430,9 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/games",
+					"raw": "http://epruryaw0341:8085/api/games",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -482,9 +482,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/game/8e05e4fc08e345d799bf4ab8b2573cab",
+					"raw": "http://epruryaw0341:8085/api/game/8e05e4fc08e345d799bf4ab8b2573cab",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -537,9 +537,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/games/",
+					"raw": "http://epruryaw0341:8085/api/games/",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
