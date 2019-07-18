@@ -180,7 +180,7 @@
 
 							"type": "file",
 
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/game.html"
+							"src": "/var/lib/jenkins/workspace/Fedorov_A/game.html"
 
 						}
 
@@ -274,7 +274,7 @@
 
 							"type": "file",
 
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/game.js"
+							"src": "/var/lib/jenkins/workspace/Fedorov_A/game.js"
 
 						}
 
@@ -368,7 +368,7 @@
 
 							"type": "file",
 
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/style.css"
+							"src": "/var/lib/jenkins/workspace/Fedorov_A/style.css"
 
 						}
 
