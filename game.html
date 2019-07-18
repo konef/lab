@@ -1,60 +1,63 @@
-<!DOCTYPE html>
-<html lang="rus">
-
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
     <title>Полицейские и мошенники</title>
+    
+    <!--from server-->    
+    <script src="../js/jquery.js" type="text/javascript"></script><!--required-->
+    <script src="../js/jquery.signalR.js" type="text/javascript"></script><!--required-->  
+    <script src="../js/gameApi.js" type="text/javascript"></script><!--required-->
+    <!---->    
+    
+    <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
+<body>
+	<div class="container dark" style="">
+		<div class="header">
+			<h1>Полицейские и мошенники</h1>
+			<div>Смена ролей</div>
+			<div class="progress">
+				<div class="progress-bar" id="progressBar" style="width: 0%;">
+				</div>
+			</div>
+		</div>
+		<div class="left team-data">	
+			<div class="team-data-label team-caption">Название: <span id="ftName" class="team-data-value">Синяки</span></div>
+			<div class="team-data-label">Очки: <span id="ftScore" class="badge">0</span></div>
+			<div class="team-data-label">Осталось жизней: <span id="ftLifes" class="badge">5</span></div>
+			
+			<br><br>
+			
+			<div class="team-data-label team-caption">Название: <span id="stName" class="team-data-value">Курилки</span></div>
+			<div class="team-data-label">Очки: <span id="stScore" class="badge">0</span></div>
+			<div class="team-data-label">Осталось жизней: <span id="stLifes" class="badge">5</span></div>
+		</div>
 
-<body - class="body">
-    <div>
-        <h1 class="block-text">Полицейские и мошенники</h1>
-    </div>
-    <div class="Progressbar">
-        <p>Смена ролей</p>
-        <progress class="progress" value="0" max="100" id="progressBar"></progress>
-    </div>
-    <div class="Main">
-        <div class="Leftpart">
-            <div class="FirstCommand">
-                <h2>Название:Полицейские</h2>
-                <p>Очки:0</p>
-                <p>Осталось жизней:0</p>
-            </div>
-            <div class="SecondCommand">
-                <h3>Название:Мошенники</h3>
-                <p>Очки:0</p>
-                <p>Осталось жизней:0</p>
-            </div>
-        </div>
-        <div class="Centerpart">
+		<div class="right">
+			<textarea class="log-box dark" id="log" readonly></textarea>
+			
+		</div>
 
-            <canvas>
-
-            </canvas>
-        </div>
-        <div class="Rightpart">
-            <canvas id ="Map">
-
-            </canvas>
-
-        </div>
-    </div>
-    <div class="Lowpart">
-        <Button id="B1">Старт</Button>
-        <Button id="B2">Стоп</Button>
-        <Button id="B3">Подключиться</Button>
-        <Button id="B4">Отключиться</Button>
-        <Button id="B5">Переподключение</Button>
-        <Button id="B6">Отключение</Button>
-        <Button id="B7">Отменить игру</Button>
-        <Button id="B8">Выход</Button>
-    </div>
-    <script src ="jsHelper.js"></script>
-    <script src ="wrapper.js"></script>
-    <script src ="game.js"></script>
+		<div class="center">			
+			<canvas id="map" class="map"></canvas>	
+		</div>
+		
+		<div class="footer text-center">			
+			<div class="btn-group dialog-group dark">
+				<button id="btnStart" class="btn-green" onclick="start()">Старт</button>
+				<button id="btnStop" class="btn-dialog" onclick="stop()">Стоп</button>
+				<button id="btnJoin" class="btn-dialog" onclick="join()">Подключиться</button>		
+				<button id="btnLeave" class="btn-dialog" onclick="leave()">Отключиться</button>	
+				<button id="btnReconnect" class="btn-dialog" onclick="reconnect()">Переподключение</button>
+				<button id="btnCancel" class="btn-warn" onclick="cancel()">Отменить игру</button>
+				<button id="btnExit" class="btn-warn" onclick="exit()">Выход</button>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../js/jsHelper.js" type="text/javascript"></script>
+	<script src="../js/wrapper.js" type="text/javascript"></script>
+	<script src="game.js" type="text/javascript"></script>
 </body>
 </html>
