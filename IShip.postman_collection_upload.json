@@ -44,12 +44,12 @@
 						},
 						{
 							"key": "username",
-							"value": "konef",
+							"value": "sivanikova",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "konef",
+							"value": "353567",
 							"type": "text"
 						}
 					]
@@ -89,7 +89,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/game.html"
+							"src": "/var/lib/jenkins/workspace/Ivanikova_S/game.html"
 						}
 					]
 				},
@@ -136,7 +136,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/game.js"
+							"src": "/var/lib/jenkins/workspace/Ivanikova_S/game.js"
 						}
 					]
 				},
@@ -183,7 +183,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/style.css"
+							"src": "/var/lib/jenkins/workspace/Ivanikova_S/style.css"
 						}
 					]
 				},
