@@ -1,0 +1,119 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    background: lightgray;
+    display: flex;
+    flex-direction: column;
+}
+.middle {
+    display: flex;
+    flex: 1;
+}
+.playboard {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.button1 {
+    background: red;
+}
+.button2 {
+    background: red;
+}
+.button3 {
+    background: greenyellow;
+}
+.button4 {
+    background: greenyellow;
+}
+.button5 {
+    background: greenyellow;
+}
+.button6 {
+    background: blue;
+}
+.button7 {
+    background: blue;
+} 
+.animate-ul{display: flex; margin: auto; margin-bottom: 30px}
+.animate-ul li{list-style:none;letter-spacing:15px;font-size:5em;font-family:fantasy;color:#940707;animation:ani 1.2s linear infinite}
+.animate-ul li:nth-child(1){animation-delay:.2s}
+.animate-ul li:nth-child(2){animation-delay:.6s}
+.animate-ul li:nth-child(3){animation-delay:.8s}
+.animate-ul li:nth-child(4){animation-delay:1s}
+.animate-ul li:nth-child(5){animation-delay:1.4s}
+.animate-ul li:nth-child(6){animation-delay:1.8s}
+.animate-ul li:nth-child(7){animation-delay:1.12s}
+@keyframes ani {
+0%{color: #448480; text-shadow: none}
+90%{color:rgb(132, 8, 8); text-shadow:none}
+100%{color:#3700ff;text-shadow:0 0 7px #2600ff,0 0 70px #3223ff}
+}
+.centr {
+    text-align: center;
+}
+.Block3 {
+    text-align: center;
+}
+.bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+.rol {
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+}
+progress {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 18px;
+    border-radius: 9px;
+}
+progress::-moz-progress-bar { 
+    height: 18px;
+    border-radius: 9px;
+}
+button {
+    border: 2px solid black;
+    margin: -3px;
+}
+.Block1 {
+    margin-bottom: 40px;
+    width: 200px;	height: 120px; /* Размеры */
+    background: rgb(55, 0, 255); /* Цвет фона */
+    outline: 2px solid #000; /* Чёрная рамка */
+    border: 3px solid rgb(252, 3, 3); /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+}
+.Block2 {
+    width: 200px;	height: 120px; /* Размеры */
+    background: rgb(255, 0, 0); /* Цвет фона */
+    outline: 2px solid #000; /* Чёрная рамка */
+    border: 3px solid rgb(8, 30, 235); /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+}
+.log {
+    width: 200px;	height: 100%; /* Размеры */
+    background: rgb(23, 26, 180); /* Цвет фона */
+    outline: 2px solid #000; /* Чёрная рамка */
+    border: 3px solid rgb(255, 0, 0); /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+}
+.img {
+    background: url(other-images-nfsnl-cops-racers.jpg.adapt.crop16x9.1920w.jpg);
+}
+.m {
+    margin-left: 40px;
+}
+.e {
+    margin-right: 40px;
+}
+.karta {
+width: 800px;
+height: 800px;
+}
