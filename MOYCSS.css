@@ -1,0 +1,64 @@
+.header {
+    text-align: center;
+    font-size: 48px;
+    border-bottom: 2px solid white;
+    color:white;
+}
+.roleChange{
+    text-align: center;
+    font-size: 18px;
+    color:white;
+}
+.leftPart{
+    flex-basis: 20%;
+    color:white;
+    
+}
+.middlePart{
+    flex-basis: 60%;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    color:white;
+}
+.rightPart{
+    flex-basis: 20%;
+    color:white;
+    
+}
+.flex{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    color:white;
+}
+.bottomPart{
+    text-align: center;
+    font-size: 18px;
+    border-top: 2px solid white;
+    color:white;
+    
+}
+.GreenBtn{
+    background-color: green;
+    border-color: green;
+    color:white;
+}
+.RedBtn{
+    background-color:red;
+    border-color:red;
+    color:white;
+}
+.BlueBtn{
+    background-color:rgba(39, 39, 151, 0.781);
+    border-color:rgba(39, 39, 151, 0.781);
+    color:white;
+}
+.Canva{
+    background-color: rgb(90, 90, 90)
+}
+.hideContent{
+    visibility:hidden;
+}
+.showContent{
+    visibility:visible;
+}

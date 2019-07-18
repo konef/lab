@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="MOYCSS.css">
+    <title>Document</title>
+</head>
+
+<body class="Canva">
+    <div class="header">
+        <h3>Полицейские и мошенники</h3>
+        <p class="roleChange">Смена ролей</p>
+        <progress value="0" max="100" id="progressBar"></progress>
+    </div>
+    <div class="flex">
+        <div class="leftPart">
+            <div>
+                <b>Название:<i>Синяки</i></b>
+                <br>Очки:0
+                <br>Осталость жизней:5
+            </div>
+            <br>
+            <div>
+                <b>Название:<i>Синяки</i></b>
+                <br>Очки:0
+                <br>Осталость жизней:5
+            </div>
+        </div>
+        
+        <div class="middlePart">
+                <canvas id="canvas">
+                </canvas>    
+        </div>
+
+        <div class="rightPart" id="log">
+            
+        </div>
+
+    </div>
+    <div class="bottomPart">
+        <button class="GreenBtn" id="startBtn">Старт</button>
+        <button class="BlueBtn" id="stopBtn">Стоп</button>
+        <button class="BlueBtn" id="connectBtn">Подключиться</button>
+        <button class="BlueBtn" id="disconnectBtn">Отключиться</button>
+        <button class="BlueBtn" id="reconnectBtn">Переподключиться</button>
+        <button class="RedBtn" id="cancelGameBtn">Отменить игру</button>
+        <button class="RedBtn" id="exitBtn">Выход</button>
+    </div>
+<script src="jsHelper.js"></script>
+<script src="wrapper.js"></script>
+<script src="game.js"></script>
+</body>
+
+</html>
