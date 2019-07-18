@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Полицейские и мошенники</title>
+</head>
+<body>
+        <h1 class="h">Полицейские и мошенники</h1>
+        <h2 class="h">Смена ролей</h2>
+    
+        <div class="main">
+            <div class="textboxOuter">
+                    <input class="textbox" type="text">
+                </div>
+            
+                <div class="split left" id="progressBar">
+                    Название:<span id="ftName">Синяки</span>
+                    <br>
+                    Очки:<span id="ftScore">0</span>
+                    <br>
+                    Осталось жизней:<span id="ftLifes">5</span>
+                    <br>
+                    <br>
+                    Название:<span id="stName"></span>
+                    <br>
+                    Очки:<span id="stScore"></span>
+                    <br>
+                    Осталось жизней:<span id="stLifes"></span>
+                </div>
+            
+                <div class="split centered">
+                    <canvas class="canvas" id="map">
+
+                    </canvas>
+                </div>
+            
+                <div class="split right">
+                    <textarea class="textArea" id="log" readonly></textarea>
+                </div>
+            
+                <div class="split bottom">
+                    <button type="submit" class="button" id="btnStart" onclick="start()">Старт</button>
+                    <button type="submit" class="button" id="btnStop" onclick="stop()">Стоп</button>
+                    <button type="submit" class="button" onclick="join()">Подключиться</button>
+                    <button type="submit" class="button" onclick="leave()">Отключиться</button>
+                    <button type="submit" class="button" onclick="reconnect()">Переподключиться</button>
+                    <button type="submit" class="button" id="btnCancel" onclick="cancel()">Отменить игру</button>
+                    <button type="submit" class="button" onclick="exit()">Выход</button>
+                </div>
+        </div>
+        
+    <script type="text/javascript" src="../js/wrapper.js"></script>
+    <script type="text/javascript" src="../js/jsHelper.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.signalR.js"></script>
+    <script type="text/javascript" src="../js/gameApi.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+</body>
+</html>
