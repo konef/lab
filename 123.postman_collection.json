@@ -240,9 +240,9 @@
 					"raw": "{\r\n  \"NativeName\": \"tttttttttttttaa\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"123root\",\r\n  \"Password\": \"123root\",\r\n  \"ConfirmPassword\": \"123root\"\r\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/user/0ae85bf40cc94b7daf92bd6b2af9f751",
+					"raw": "http://epruryaw0341:8085//api/user/0ae85bf40cc94b7daf92bd6b2af9f751",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085/"
 					],
 					"path": [
 						"api",
@@ -322,7 +322,7 @@
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/game",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085/"
 					],
 					"path": [
 						"api",
