@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "81940376-2837-4f5d-9516-f8e421d12531",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "190d7c83-8c7e-4263-8486-f0af99fa3e9d",
+						"exec": [
+							"var jsonResp = pm.response.json();",
+							"pm.environment.set(\"token\", jsonResp[\"access_token\"]);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test66",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e742e7d-241b-4a91-8caa-fa12f2994520",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonResp = pm.response.json();",
+							"pm.environment.set(\"userId\", jsonResp[\"id\"]);",
+							"",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43d64337-f122-4fb4-b163-3194227ed8ec",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "NativeName",
+							"value": "666 test",
+							"type": "text"
+						},
+						{
+							"key": "Role",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "OldPassword",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "ConfirmPassword",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/user/{{userId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. User Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "886f894d-a37a-4776-a397-23c56ce21401",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/user/{{userId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Map",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "13af3db8-38ce-4b45-9846-fdfe561c1cf1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonResp = pm.response.json();",
+							"pm.environment.set(\"mapId\", jsonResp[5][\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Create game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "147d8455-2c4d-4190-ae24-c30ad706df03",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonResp = pm.response.json();",
+							"pm.environment.set(\"gameId\", jsonResp[\"id\"]);",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "Game_test",
+							"type": "text"
+						},
+						{
+							"key": "MapId",
+							"value": "{{mapId}}",
+							"type": "text"
+						},
+						{
+							"key": "SwitchTimeout",
+							"value": "60000",
+							"type": "text"
+						},
+						{
+							"key": "StartupTeamLives",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "PoliceSpeed",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "ThiefSpeed",
+							"value": "4.4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. List game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e011e55a-5431-4512-ae29-2d9db7070ffa",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Info game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07447598-abd7-471b-9f36-74d34ced959c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/game/{{gameId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{gameId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. User game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a95f99a-7539-4958-b0b4-109ab6069786",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/game/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Delete game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e03ca95-c386-43b0-a19c-dab7efbde8a6",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/game/{{gameId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{gameId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. Maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79a50930-df94-4a8f-994e-49b5651c2e6b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12. User list maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1eea9136-ed03-4524-b1d3-9cf7763a98c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/user/{{userId}}/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{userId}}",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
