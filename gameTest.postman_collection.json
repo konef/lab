@@ -572,7 +572,7 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/games",
+					"raw": "http://epruryaw0341:8085/api/games",
 					"host": [
 						"{{url}}"
 					],
