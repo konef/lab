@@ -566,7 +566,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://epruryaw0341:8085/api/game/a79e7f9f46a847ffb5fa650aca19e76f",
+					"raw": "http://epruryaw0341:8085/api/game/{{createdGameId}}",
 					"protocol": "http",
 					"host": [
 						"epruryaw0341"
@@ -575,7 +575,7 @@
 					"path": [
 						"api",
 						"game",
-						"9946368220914924a47de1ea554a864e"
+						"{{createdGameId}}"
 					]
 				}
 			},
