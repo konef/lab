@@ -1,0 +1,630 @@
+{
+	"info": {
+		"_postman_id": "6329c237-222f-43d6-8375-46890e171af1",
+		"name": "practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1_get_token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f70717c2-4f6b-42d8-bc32-36272c01ae0f",
+						"exec": [
+							"var JsonResp= pm.response.json();",
+							"pm.environment.set(\"token\",JsonResp[\"access_token\"] );",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "cdv62",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qwert",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/token",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2_look_about_me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a705807b-6cc9-42ba-a5a0-38ed8e7dde38",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADZtfgSOqfVns7PySMuAEe9iCymeCrIHvooumqtE-JnGwAAAAAOgAAAAAIAACAAAAA-ditteEZD4DjLtxdvHF0pd25lk8kNI_0hTvB1k7lx-BABAACnZ-FTLlG3xgmAX4kAkfMrz2fqKyL4fqW_B-_i4AcY5JUwlHSVqjimgMyVp1TgFnxbqOAnEyykkgoIBvokpCBQpPECK77PsdJ92YUfn3UFD8EnrnYZGHwjKCsY1UOw5GsycOZts0TBitbyUzybg4Q_oqJxl9Cuu8dgifh-rvv2dB2OkjL8V7ABfcKbq4VYsZUV0SVTSZ4uaKo_YR8vYwCkP45dhFFXfpK4DcWTrC7EAlpbp6qQhDDUHLJK4vgYW6Gks35QkO1VGdvioGXyGJTxFX86aGCgwRsINfxYf5M3cY696ArztkGfueiJGx6j54hEIgQ6nP9m9jus9EW-1q7qPGbXEQPGQiSho8IEAJeGAEAAAAA-PnH-215VngAR5pMoLAtlNFBUScCdwkaSxcDazRQCn-FGMQbuGb67DoBPjcs8ocdNLSJUR05DrIz2JWw_zKN4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{user}}",
+					"host": [
+						"{{user}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3_new_inform",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f237870-005a-4035-8c94-3823a2ea13a4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"dmitry chinyaev\",\r\n  \"Role\": 0,\r\n  \"OldPassword\": \"qwert\",\r\n  \"Password\": \"qwert\",\r\n  \"ConfirmPassword\": \"qwert\"\r\n}\r\n\r\n"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/c25873aed7f8411094f8380e2dc58d6d",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"c25873aed7f8411094f8380e2dc58d6d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4_USER_INFORM",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92e96f33-206c-4983-826c-6ed17dcee661",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADZtfgSOqfVns7PySMuAEe9iCymeCrIHvooumqtE-JnGwAAAAAOgAAAAAIAACAAAAA-ditteEZD4DjLtxdvHF0pd25lk8kNI_0hTvB1k7lx-BABAACnZ-FTLlG3xgmAX4kAkfMrz2fqKyL4fqW_B-_i4AcY5JUwlHSVqjimgMyVp1TgFnxbqOAnEyykkgoIBvokpCBQpPECK77PsdJ92YUfn3UFD8EnrnYZGHwjKCsY1UOw5GsycOZts0TBitbyUzybg4Q_oqJxl9Cuu8dgifh-rvv2dB2OkjL8V7ABfcKbq4VYsZUV0SVTSZ4uaKo_YR8vYwCkP45dhFFXfpK4DcWTrC7EAlpbp6qQhDDUHLJK4vgYW6Gks35QkO1VGdvioGXyGJTxFX86aGCgwRsINfxYf5M3cY696ArztkGfueiJGx6j54hEIgQ6nP9m9jus9EW-1q7qPGbXEQPGQiSho8IEAJeGAEAAAAA-PnH-215VngAR5pMoLAtlNFBUScCdwkaSxcDazRQCn-FGMQbuGb67DoBPjcs8ocdNLSJUR05DrIz2JWw_zKN4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"description": "application/json",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{user}}",
+					"host": [
+						"{{user}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6_Game_Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7d5d99a3-0e69-4667-9167-9a637df75c6f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"var jsonObject = xml2Json(responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"1111\",\r\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\r\n  \"SwitchTimeout\": 10,\r\n  \"StartupTeamLives\": 3,\r\n  \"PoliceSpeed\": 7,\r\n  \"ThiefSpeed\": 5\r\n}"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/game",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7_GET_LIST__OF_MAPS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19571741-c082-4af6-bbd6-1d96cacc7dff",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADZtfgSOqfVns7PySMuAEe9iCymeCrIHvooumqtE-JnGwAAAAAOgAAAAAIAACAAAAA-ditteEZD4DjLtxdvHF0pd25lk8kNI_0hTvB1k7lx-BABAACnZ-FTLlG3xgmAX4kAkfMrz2fqKyL4fqW_B-_i4AcY5JUwlHSVqjimgMyVp1TgFnxbqOAnEyykkgoIBvokpCBQpPECK77PsdJ92YUfn3UFD8EnrnYZGHwjKCsY1UOw5GsycOZts0TBitbyUzybg4Q_oqJxl9Cuu8dgifh-rvv2dB2OkjL8V7ABfcKbq4VYsZUV0SVTSZ4uaKo_YR8vYwCkP45dhFFXfpK4DcWTrC7EAlpbp6qQhDDUHLJK4vgYW6Gks35QkO1VGdvioGXyGJTxFX86aGCgwRsINfxYf5M3cY696ArztkGfueiJGx6j54hEIgQ6nP9m9jus9EW-1q7qPGbXEQPGQiSho8IEAJeGAEAAAAA-PnH-215VngAR5pMoLAtlNFBUScCdwkaSxcDazRQCn-FGMQbuGb67DoBPjcs8ocdNLSJUR05DrIz2JWw_zKN4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8_conkrete_map",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad47af37-d655-4b54-b327-6bf94d4d6cd4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url_list_game}}",
+					"host": [
+						"{{url_list_game}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9_get_user_games",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "387511f8-820d-4bfa-81c8-23c57f1c3b86",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url_list_game}}",
+					"host": [
+						"{{url_list_game}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10_delete_game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f60aa0a-fb43-40b3-90b3-3ebb75fe0c0a",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_d}}",
+					"host": [
+						"{{url_d}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11_GET_LIST__OF_MAPS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "509e0035-def7-4359-a643-33b9a9cbeb6e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADZtfgSOqfVns7PySMuAEe9iCymeCrIHvooumqtE-JnGwAAAAAOgAAAAAIAACAAAAA-ditteEZD4DjLtxdvHF0pd25lk8kNI_0hTvB1k7lx-BABAACnZ-FTLlG3xgmAX4kAkfMrz2fqKyL4fqW_B-_i4AcY5JUwlHSVqjimgMyVp1TgFnxbqOAnEyykkgoIBvokpCBQpPECK77PsdJ92YUfn3UFD8EnrnYZGHwjKCsY1UOw5GsycOZts0TBitbyUzybg4Q_oqJxl9Cuu8dgifh-rvv2dB2OkjL8V7ABfcKbq4VYsZUV0SVTSZ4uaKo_YR8vYwCkP45dhFFXfpK4DcWTrC7EAlpbp6qQhDDUHLJK4vgYW6Gks35QkO1VGdvioGXyGJTxFX86aGCgwRsINfxYf5M3cY696ArztkGfueiJGx6j54hEIgQ6nP9m9jus9EW-1q7qPGbXEQPGQiSho8IEAJeGAEAAAAA-PnH-215VngAR5pMoLAtlNFBUScCdwkaSxcDazRQCn-FGMQbuGb67DoBPjcs8ocdNLSJUR05DrIz2JWw_zKN4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{maps}}?Cookie=IShipAuthToken={{token}}&Content-Type=application/json&accept=application/json",
+					"host": [
+						"{{maps}}"
+					],
+					"query": [
+						{
+							"key": "Cookie",
+							"value": "IShipAuthToken={{token}}"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "accept",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12_get_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4bdb277-f4b6-4504-a1f7-f60df50ce134",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/c25873aed7f8411094f8380e2dc58d6d/maps",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"c25873aed7f8411094f8380e2dc58d6d",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
