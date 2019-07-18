@@ -1,73 +1,21 @@
 {
 	"info": {
-		"_postman_id": "8fd232ea-f2f9-441b-aa0b-52e809ac2b11",
-		"name": "Test_Pavlov",
+		"_postman_id": "77b231a3-a5e5-42a2-89bc-79c792a75c9a",
+		"name": "Test_backend_game",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "My_Info",
+			"name": "GetToken",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "03cd6154-4de2-4cb1-9c9a-c405b7050524",
+						"id": "d3f152fe-5f83-4032-b707-d42ce10e2e0c",
 						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
 							"var jsonResp = pm.response.json();",
-							"postman.setEnvironmentVariable(\"UserId\", jsonResp[\"id\"]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://epruryaw0341:8085/api/me",
-					"protocol": "http",
-					"host": [
-						"epruryaw0341"
-					],
-					"port": "8085",
-					"path": [
-						"api",
-						"me"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update_Info",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "51826be1-214f-4a74-96ce-51b5a1390412",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
+							"postman.setEnvironmentVariable(\"token\", jsonResp[\"access_token\"]);",
+							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
 						],
@@ -76,45 +24,44 @@
 				}
 			],
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
 						"type": "text"
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"NativeName\": \"newPavlov\",\r\n  \"Role\": 0,\r\n  \"OldPassword\": \"1234567890\",\r\n  \"Password\": \"1234567890\",\r\n  \"ConfirmPassword\": \"1234567890\"\r\n}"
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sasha-shack",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
-					"raw": "epruryaw0341:8085/api/user/{{UserId}}",
+					"raw": "http://epruryaw0341:8085/token",
+					"protocol": "http",
 					"host": [
 						"epruryaw0341"
 					],
 					"port": "8085",
 					"path": [
-						"api",
-						"user",
-						"{{UserId}}"
-					],
-					"query": [
-						{
-							"key": "login",
-							"value": "art_99",
-							"disabled": true
-						}
+						"token"
 					]
 				}
 			},
