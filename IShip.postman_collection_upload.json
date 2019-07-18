@@ -44,12 +44,12 @@
 						},
 						{
 							"key": "username",
-							"value": "konef",
+							"value": "sas6757",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "konef",
+							"value": "1234567aA",
 							"type": "text"
 						}
 					]
@@ -183,7 +183,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/style.css"
+							"src": "/var/lib/jenkins/workspace/konev_i_pipe/fgsdgf.css"
 						}
 					]
 				},
