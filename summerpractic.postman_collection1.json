@@ -1,0 +1,662 @@
+{
+	"info": {
+		"_postman_id": "a3ef9514-5447-4719-8c3e-8f86ab1a237c",
+		"name": "summerpractic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a6fb701-389c-47a0-ad91-15a6d583b42e",
+						"exec": [
+							"var jsonResp = pm.response.json();",
+							"postman.setEnvironmentVariable(\"token\", jsonResp[\"access_token\"]);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Alex1536@@",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "lbyrf1536",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/token",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6af84a02-95c1-4984-ac24-b66a854494f8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/me",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d44f3629-c4ee-4690-9d39-1e7629718457",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"Ekaterina Dyuzhaeva1\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"lbyrf1536\",\r\n  \"Password\": \"lbyrf1536\",\r\n  \"ConfirmPassword\": \"lbyrf1536\"\r\n}"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/19fda6c8e7944f58b5fa616b999fe06a",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"19fda6c8e7944f58b5fa616b999fe06a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get information user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12591a22-1ad7-444f-ad78-6e106e98686e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/19fda6c8e7944f58b5fa616b999fe06a",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"19fda6c8e7944f58b5fa616b999fe06a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get map",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8d174dbb-c75b-4c56-93ed-cd6d7306df88",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/map",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "667af621-5163-411a-9b8e-a9c9b5303519",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonResp = pm.response.json();",
+							"postman.setEnvironmentVariable(\"gameid\", jsonResp[\"id\"]);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"gameTest\",\r\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\r\n  \"SwitchTimeout\": 1000,\r\n  \"StartupTeamLives\": 5,\r\n  \"PoliceSpeed\": 100,\r\n  \"ThiefSpeed\": 60\r\n}"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/game",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bbf0c236-a619-4df4-a55a-1f2e2ea1c623",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "start",
+							"value": "0",
+							"description": "Start position",
+							"type": "text"
+						},
+						{
+							"key": "count",
+							"value": "10",
+							"description": "Games count",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/games?start=0&count=11",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get information of game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c28f8096-3131-40b3-baec-3999d8889618",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/game/{{gameid}}",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"{{gameid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get information og games user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8114ad57-796c-46e5-afcc-bf1e76de7ec2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/games/?start=1&count=1",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"games",
+						""
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4eeb12f2-67b9-46f7-925e-4c390cdae483",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/game/{{gameid}}",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"{{gameid}}"
+					],
+					"query": [
+						{
+							"key": "gameId",
+							"value": "7611d4fd6bbe48fa8b9712efbade409e",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6da3aaae-2642-40f6-aed1-3c17eeb187e0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/maps",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get maps of user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb6cefb3-3f83-4105-84ee-222dd1e4bd79",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACXR7ehGExdAwSy1m36IcnEST00_8rSBQKAyNZLvQEeywAAAAAOgAAAAAIAACAAAAAOz48zmo41Kli_h3eYx6BY35_Wm44qtJflRtAKFDkd4RABAAAOFYknB2C7Wn_kDskmA6nDFcIxwjMq6LEat5RufiZZE1qyyK2fhN7gmK2Dal-YT-CmsgrugT9RfmCda86LDat2DMXgj8EFKQJBX2uD9rCOWQRx74YJ-BuC905lwnDW9qjv8fH69eYdLpMZZQ__TL6kacCCUKoahHB6zjUPZ2j99KONZzazG1j_c2wem31dp8m30IAozSrn1rlcF1CU5lb6G187u7kghzTpJjJM9Ncj7DlbjppyKAg402zhGC8npWENBme8TbA7njZ2NKtdeFnXDBWGxm_gx-zlOFDudeF6w-FFvPY6LC527e6Was_f_8UtrCK602i7zkvdJMN9NyXWt5HDjifBeb5pnPsuWZtQYkAAAAAWVgGEu2zvMn0daHnCIR1OAKznAtB1AgP5AaA1PxT_WvafDsyDTFDmkl7swQ3cfY631YaP5eAt8h51wqKJFB7q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/1c18e0c5a9ac4058968f2f97e9b762fe/maps",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"1c18e0c5a9ac4058968f2f97e9b762fe",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
