@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "e82d9cbb-f224-4072-8050-1f4a439a5fdd",
+		"name": "1708",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Получить токен",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть информацию о себе",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sas6757",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567aA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/token",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "обновить информацию о себе",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"NativeName\": \"Большаков Александрa\",\n  \"Role\": 1,\n  \"OldPassword\": \"1234567aA\",\n  \"Password\": \"Aa7654321\",\n  \"ConfirmPassword\": \"Aa7654321\"\n}"
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/d71fa13b8d0846178cc783d1c3a5342c",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"d71fa13b8d0846178cc783d1c3a5342c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт(map)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/map",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт (maps)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать игру",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n  \"Name\": \"1111\",\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\n  \"SwitchTimeout\": 6000,\n  \"StartupTeamLives\": 5000,\n  \"PoliceSpeed\": 2,\n  \"ThiefSpeed\": 3\n}"
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список игр",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить информацию о конкретной игре",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADGg_T3HyG5u2QtI9Pg2VA-IVrCwrvuQbFQZp9M091flgAAAAAOgAAAAAIAACAAAADaLERW3eNS3ZK_GbfOBqwqK_5KRehyEdsnWMzMQr4xrDABAAA7q6-9py1Fv_ySQSsPw-HM0B91fsU38VtamTMzQLy40GTal_tUcb6LLVSNErVzr7JjyJEz7IZkondDZf-gMTJwUTaK15No9G1J4qoyTU139jPoG9dzsGRw1jLat93PPg1AZxhTwsiG4jwVu_xz0cpSiGHQq4X0f0JuxFaLBAb99tnRGqbdrpMj3bP8bppubBJJ6deU6qbOtQztRAlQmOUeMD7RWbRCQ1mtHYbCOYC3lfvh0wVtDz4BVUSod9KpzJBpV9Drf7va8j8bMMrOlnkQHdrGD3Cf5E926hL7aFJwAOh8fspEbR5eij1B7Cy0DhCrmEWK96RefJOxRzckW7K8w4JZP2Zn4t687ig29LNtiwFc4XCoe_KjAAHT0FG5hO4B0J2VVTTy0S1vEx726LjlQAAAAA6TfEFa-JwLzAv2IBdss37GXWp0NRTZ-wizrSPmqjFaoKEekECCrGrULPF-TXia-INKpWDS5WTZ_pQv2iSqMs8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game/f2d111fc4d364cfc9059027b75f70345",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"f2d111fc4d364cfc9059027b75f70345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить игру",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n  \"Name\": \"1111\",\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\n  \"SwitchTimeout\": 6000,\n  \"StartupTeamLives\": 5000,\n  \"PoliceSpeed\": 2,\n  \"ThiefSpeed\": 3\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/game/7c512048edb34088952b091043e9ff12",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"7c512048edb34088952b091043e9ff12"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
