@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "8fd232ea-f2f9-441b-aa0b-52e809ac2b11",
+		"name": "Test_Pavlov",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "27d8d641-f6f2-4ef1-bea5-323a37ff9340",
+						"exec": [
+							"var jsonResp = pm.response.json();",
+							"postman.setEnvironmentVariable(\"token\", jsonResp[\"access_token\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "UserName",
+							"value": "art_99",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "1234567890",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/token",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My_Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03cd6154-4de2-4cb1-9c9a-c405b7050524",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonResp = pm.response.json();",
+							"postman.setEnvironmentVariable(\"UserId\", jsonResp[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/me",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51826be1-214f-4a74-96ce-51b5a1390412",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"newPavlov\",\r\n  \"Role\": 0,\r\n  \"OldPassword\": \"1234567890\",\r\n  \"Password\": \"1234567890\",\r\n  \"ConfirmPassword\": \"1234567890\"\r\n}"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/{{UserId}}",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"{{UserId}}"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "art_99",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ddc27ddf-da66-4e25-80e2-196f4acf9b2a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/0e0ad3ce2bfc4f2186f22db2078f4216",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"0e0ad3ce2bfc4f2186f22db2078f4216"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_list_map",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cdc239d3-1573-4191-9a8d-24ac6a7e0268",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18fbbeb5-0b91-4837-b359-487b3cc17a5e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"MyMap1\",\r\n  \"MapId\": \"024840c85f60407b9cb1a2642d6399b3\",\r\n  \"SwitchTimeout\": 1000,\r\n  \"StartupTeamLives\": 3,\r\n  \"PoliceSpeed\": 5,\r\n  \"ThiefSpeed\": 5\r\n}"
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_List_Games",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ef7e1ad-2ddb-458a-bdcb-eff00ea244f5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/games",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_info_games_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aa4e2ba8-0b5a-40e7-b7a7-ea7ac0037cba",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game?start=1&count=1",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_List_Map2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6325acb-edb3-438a-b3b6-2f9677050825",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_MapList_User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3776edfe-d3b1-4076-8e22-df4278696fd9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAC4CAdqiL_MwYowgmPUakuj0iMcMbVnGHwkU2UFtoT5bgAAAAAOgAAAAAIAACAAAAB3N6rlWScunC-6K9InTpxSlSFg1H_94PBxRpMfCp2v0hABAACrfNkCKjjUSbJMy_Bs6BGAyt_5oaV39QnPS_I9vYZ4IJ7-GoRpX_v4m8LPf9YDoahLftePB3ykCiu1Xv0MiNdPM2JXF83MM_QQ4IrxoVHJVc16SeJddLZ_gEkvGAJdef9aG0EKaasSgcMJU8JdRU8RF4b4-KfCiBVKYYepZlOrRxnSIlv0I7tJUpAeGVclCQG98Luw9yLpjkvuyVAq3JIDSuKjPirayFX1mzdX5hhUh59_DI5cjTTjUT9Dj6COGb5OKoHhXTgcoDnI_qvwXHa4a2xAdW8n-XpiwiSLGDCV6qsjdScR5LiokjbyNR_0g42Ai6NQAzWy7GnOg60KCTQTLcVx2pd33KTBI0INczAjeUAAAACH3KUDQ2MondbNcPN-SRYOKc9RMCEM0vanRue55VXlZL6PiG1mjvMD_1vH-4zDCl1E4HhdodS7BLDcGFJRXldK",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/0e0ad3ce2bfc4f2186f22db2078f4216/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"0e0ad3ce2bfc4f2186f22db2078f4216",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
