@@ -1,0 +1,696 @@
+{
+	"info": {
+		"_postman_id": "c33c1363-bd2e-4f65-975c-5e6c25bba332",
+		"name": "MyCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5322c86c-86f8-4d3d-acf3-a7241a4208e6",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb94d383-3aa9-4f35-b305-4b763388ee61",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var json = JSON.parse(responseBody);",
+							"var Token = json.access_token;",
+							"pm.environment.set(\"Token\", Token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "villord",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InfoAboutMyself",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "412cdae9-f70b-4146-a168-01e7596109b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var json = JSON.parse(responseBody);",
+							"var tempID = json.id;",
+							"pm.environment.set(\"UserID\", tempID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "villord",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123qweasd",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpDateInfoAboutMyself",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64cb9b6c-2136-4d09-b2f7-466aa86be3f9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "NativeName",
+							"value": "SomeNativeName",
+							"type": "text"
+						},
+						{
+							"key": "Role",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "OldPassword",
+							"value": "123qwe",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "123qwe",
+							"type": "text"
+						},
+						{
+							"key": "ConfirmPassword",
+							"value": "123qwe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/user/c5f66d302fa844309c0809375ca68a37",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"c5f66d302fa844309c0809375ca68a37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetInfoAboutUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1928b94a-da55-4698-bccd-b486afe0f796",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/user/{{UserID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMaps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b9e56208-ef78-417a-a224-7bbec3ec1a5b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var json = JSON.parse(responseBody);",
+							"var tempMapID = json[0].id;",
+							"pm.environment.set(\"MapID\", tempMapID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8b30b32-4e9b-4a02-bc8a-4c00e5e1956f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var json = JSON.parse(responseBody);",
+							"var tempGameID = json.id;",
+							"pm.environment.set(\"GameID\", tempGameID);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "SomeName",
+							"type": "text"
+						},
+						{
+							"key": "MapId",
+							"value": "{{MapID}}",
+							"type": "text"
+						},
+						{
+							"key": "SwitchTimeout",
+							"value": "20000",
+							"type": "text"
+						},
+						{
+							"key": "StartupTeamLives",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "PoliceSpeed",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ThiefSpeed",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGameList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "88d18fa1-9093-45fa-a19a-d3456696290a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetInfoAboutGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32f2a2ab-86f2-46ad-8f30-49b800b4b323",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/game/{{GameID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{GameID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetInfoAboutUserGames",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "57a79db2-17a7-4bdf-9662-45af3f58bc8b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/games?start=1&count=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "426876a5-1513-4995-bbad-13cf3b99cc70",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/game/{{GameID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{GameID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetListUserMaps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7aec2820-d683-4acf-b975-1e6f8da37fcd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/user/{{UserID}}/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{UserID}}",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
