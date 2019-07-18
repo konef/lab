@@ -1,0 +1,75 @@
+.block-text {
+    text-align: center;
+    font-size: 40px;
+    color: aquamarine;
+}
+.Progressbar {
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    color: aquamarine;
+}
+.progress {
+    height: 18px;
+    width: 60%;
+}
+.Leftpart {
+    border-right: 2px solid black;
+}
+.Centerpart {
+    border-right: 2px solid aquamarine;
+    width: 70%;
+    border-left: 2px solid aquamarine;
+}
+.Main {
+    display: flex;
+    justify-content:center;
+    flex-direction:row;
+    border-bottom: 2px solid aquamarine;
+    border-top: 2px solid aquamarine;
+    color: azure;
+}
+.body {
+    background-color: black;
+}
+.Lowpart {
+    text-align: center;
+}
+.B1 {
+    background-color: darksalmon;
+    color: black;
+    border: 0PX solid darksalmon;
+}
+.B2 {
+    background-color: darksalmon;
+    color: black;
+    border: 0PX solid darksalmon;
+}
+.B3 {
+    background-color: violet;
+    color: black;
+    border: 0PX solid violet;
+}
+.B4 {
+    background-color: violet;
+    color: black;
+    border: 0PX solid violet;
+}
+.B5 {
+    background-color: aqua;
+    color: black;
+    border: 0PX solid aqua;
+}
+.B6 {
+    background-color: aqua;
+    color: black;
+    border: 0PX solid aqua;
+}
+.B7 {
+    background-color:yellow;
+    color: black;
+    border: 0PX solid yellow;
+}
+.VisibleOff {
+    visibility: hidden;
+}

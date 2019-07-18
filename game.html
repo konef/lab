@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="rus">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Полицейские и мошенники</title>
+</head>
+
+<body - class="body">
+    <div>
+        <h1 class="block-text">Полицейские и мошенники</h1>
+    </div>
+    <div class="Progressbar">
+        <p>Смена ролей</p>
+        <progress class="progress" value="0" max="100" id="progressBar"></progress>
+    </div>
+    <div class="Main">
+        <div class="Leftpart">
+            <div class="FirstCommand">
+                <h2>Название:Полицейские</h2>
+                <p>Очки:0</p>
+                <p>Осталось жизней:0</p>
+            </div>
+            <div class="SecondCommand">
+                <h3>Название:Мошенники</h3>
+                <p>Очки:0</p>
+                <p>Осталось жизней:0</p>
+            </div>
+        </div>
+        <div class="Centerpart">
+
+            <canvas>
+
+            </canvas>
+        </div>
+        <div class="Rightpart">
+            <canvas id ="Map">
+
+            </canvas>
+
+        </div>
+    </div>
+    <div class="Lowpart">
+        <Button id="B1">Старт</Button>
+        <Button id="B2">Стоп</Button>
+        <Button id="B3">Подключиться</Button>
+        <Button id="B4">Отключиться</Button>
+        <Button id="B5">Переподключение</Button>
+        <Button id="B6">Отключение</Button>
+        <Button id="B7">Отменить игру</Button>
+        <Button id="B8">Выход</Button>
+    </div>
+    <script src ="jsHelper.js"></script>
+    <script src ="wrapper.js"></script>
+    <script src ="game.js"></script>
+</body>
+</html>
