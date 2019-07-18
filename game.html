@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Полицейские и мошенники</title>
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <!--from server-->
+    <script src="../js/jquery.js" type="text/javascript"></script>
+    <!--required-->
+    <script src="../js/jquery.signalR.js" type="text/javascript"></script>
+    <!--required-->
+    <script src="../js/gameApi.js" type="text/javascript"></script>
+    <!--required-->
+    <!---->
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Полицейские и мошенники</h1>
+        </header>
+
+
+        <div class="progress-bar">
+            <div>Смена ролей</div>
+        </div>
+
+        
+      
+        <div class="workaria">
+
+
+            <div class="nav-left">
+                <div>
+                    <div id="progressBar">полоса загрузки</div>
+
+                    <div><b>Название:<i>Синяки</i></b></div>
+                    <div> Очки: 0</div>
+                    <div> Осталось жизней: 5</div>
+                    <div> <br> </div>
+                </div>
+                <div>
+                    <div> <b>Название:<i>Курилки</i></b></div>
+                    <div> Очки: 0</div>
+                    <div> Осталось жизней: 5</div>
+
+                </div>
+
+            </div>
+
+            <div class="context"> 
+                
+                <div class="canvas-block">
+                    <canvas class="canvas" id="map"></canvas>
+                </div>
+            </div>
+            <div class="aside"> <div  id="log">Игра готова к запуску </div></div>
+           
+
+        </div>
+
+        <footer class="footer">
+            <p style="text-align: left">
+                <input type="button" class="b0" id="btnStars" onclick="start()" value="Старт">
+                <input type="button" class="b0" id="btnStop" onclick="stop()" value="Стоп">
+                <input type="button" class="b2" id="btnJoin" onclick="join()" value="Подключиться">
+                <input type="button" class="b2" id="btnLeave" onclick="leave()" value="Отключиться">
+                <input type="button" class="b2" id="btnRecconnect" onclick="recconnect()" value="Переподключение">
+                <input type="button" class="b1" id="btnCancel" onclick="cancel()" value="Отменить игру">
+                <input type="button" class="b1" id="btnExit" onclick="exit()" value="Выход">
+    </div>
+    </footer>
+    </div>
+
+    <script src="./jsHelper.js" type="text/javascript"></script>
+    <script src="./wrapper.js" type="text/javascript"></script>
+    <script src="./game.js" type="text/javascript"></script>
+</body>
+
+</html>

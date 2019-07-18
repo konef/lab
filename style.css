@@ -1,0 +1,100 @@
+
+H1 {
+    font-size: 30px;
+    font-family: Arial, Verdana, sans-serif;
+    text-align: center;
+    color:red;
+  }
+  *{
+    box-sizing: border-box;
+  }
+body {
+    background-color:#4B0082;
+    background: url(123.png) no-repeat fixed center;
+    background-size: 100%;
+    margin: 0;
+}
+.container {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    flex-direction: column;
+    height: 100vh;
+     }
+     .progress-bar{
+         width: 100%
+     }
+   
+.header {
+    width:100%
+}
+.progress-bar{  
+    width: 100%;
+    text-align: center;
+}
+.nav-left {
+    width:20%;
+    padding: 0 300;
+}
+.content {
+    width: 60%;
+}
+.c1 {
+    margin: 0 300px 0 200px;
+}
+.aside{
+    width: 20%;
+    padding: 0 10px;
+}
+.footer{
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.context {
+        width: 60%; 
+        border: 2px solid grey;
+    
+}
+.workaria {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap:wrap;
+}
+.b2{
+    background: -webkit-gradient(linear, 0 0, 0  100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #666;
+    height: 35px; width: 130px;
+}
+.b1{
+    background: -webkit-gradient(linear, 0 0, 0  100%, from( #FF0000), to( #FF0000), color-stop(0.5,  #FF0000));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #666;
+    height: 35px; width: 130px;
+}
+.b0{
+    background: -webkit-gradient(linear, 0 0, 0  100%, from(#32CD32), to(#32CD32), color-stop(0.5, #32CD32));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #666;  
+    height: 35px; width: 130px;
+}
+
+.canvas-block{
+    width: 100%;
+    position: relative;
+    height:100px;
+}
+.canvas{
+    width: 100%;
+    height: 70%;
+}

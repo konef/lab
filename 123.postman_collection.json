@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "b7db5f12-bb62-4aba-bc1d-149f0aa2da04",
+		"name": "123",
+		"description": "info",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c806230-f7fc-4a3b-ac75-cd741151081b",
+						"exec": [
+							"var JsonResp= pm.response.json();",
+							"pm.environment.set(\"token\", JsonResp[\"access_token\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "123roott",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123root",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "123roott",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123roott",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://epruryaw0341:8085/token",
+							"protocol": "http",
+							"host": [
+								"epruryaw0341"
+							],
+							"port": "8085",
+							"path": [
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "708"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-HTTPAPI/2.0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 17 Jul 2019 09:01:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAD04tQqnmieF9rDaXXMp_pnZ7iz5c_J-h9ttwF-bMWgVQAAAAAOgAAAAAIAACAAAACavOxyosKvTNAiiSmX1nwJOLlxBN9p-aS4TXaszD1lThABAADx4zlfTSBC5GwoSxUTT6_mP7iqHZjThmgTJdzMZVYeZiWVT9_2HSPF3aj4BdSbYn1NqmhzeE5UXNv9iLGnCAavYjPYPzEWQpmFpn1X4DM4RWQ-n6QWl42Mxm9d7nNEZeBuvsVCZdz8kkZpo3O4jiNb5Hm0SQl_IB2BI5w6xlyv99ai_KbbpgXWdajts487lsBQ3lCauupZWIsJBn-jihXXLE9SrRDYOkZPfrXitxGVwDNY7vtNWwCIjReSic0F_uy_2rZsZjG6TT48CSkLLAGtXk-2rbqJZ1eLvQHMXeor7XXNkvnva7GjsG9fydvWEOZNliDA2Dw5OkCaj67PiXI22RMASfAy8fC1v0r3lZ0ki0AAAABm8Po0Ot1MP7VPEDv1P8irB8Jsph1_K_qZ-ZUZ9-NGeRcfCKj4EEEJiaLeTwUttLRTiw8riMtnkAqOKcj6-yWA\",\n    \"token_type\": \"bearer\",\n    \"expires_in\": 86399\n}"
+				}
+			]
+		},
+		{
+			"name": "info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAD04tQqnmieF9rDaXXMp_pnZ7iz5c_J-h9ttwF-bMWgVQAAAAAOgAAAAAIAACAAAACavOxyosKvTNAiiSmX1nwJOLlxBN9p-aS4TXaszD1lThABAADx4zlfTSBC5GwoSxUTT6_mP7iqHZjThmgTJdzMZVYeZiWVT9_2HSPF3aj4BdSbYn1NqmhzeE5UXNv9iLGnCAavYjPYPzEWQpmFpn1X4DM4RWQ-n6QWl42Mxm9d7nNEZeBuvsVCZdz8kkZpo3O4jiNb5Hm0SQl_IB2BI5w6xlyv99ai_KbbpgXWdajts487lsBQ3lCauupZWIsJBn-jihXXLE9SrRDYOkZPfrXitxGVwDNY7vtNWwCIjReSic0F_uy_2rZsZjG6TT48CSkLLAGtXk-2rbqJZ1eLvQHMXeor7XXNkvnva7GjsG9fydvWEOZNliDA2Dw5OkCaj67PiXI22RMASfAy8fC1v0r3lZ0ki0AAAABm8Po0Ot1MP7VPEDv1P8irB8Jsph1_K_qZ-ZUZ9-NGeRcfCKj4EEEJiaLeTwUttLRTiw8riMtnkAqOKcj6-yWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/me",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "обновить",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "818445e6-6268-4f8a-8914-769e4b84d83d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"tttttttttttttaa\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"123root\",\r\n  \"Password\": \"123root\",\r\n  \"ConfirmPassword\": \"123root\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/user/0ae85bf40cc94b7daf92bd6b2af9f751",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"0ae85bf40cc94b7daf92bd6b2af9f751"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "создать игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f25b092a-c84a-4a28-bc10-52961c80594d",
+						"exec": [
+							"var JsonResp= pm.response.json();",
+							"pm.environment.set(\"GameID\", JsonResp[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"1111\",\r\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\r\n  \"SwitchTimeout\": 6000,\r\n  \"StartupTeamLives\": 5000,\r\n  \"PoliceSpeed\": 2,\r\n  \"ThiefSpeed\": 3\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить ин-ию о конкретной игре",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "414d7f7a-0bee-4e6a-9e57-b0d09ced4f5e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAD04tQqnmieF9rDaXXMp_pnZ7iz5c_J-h9ttwF-bMWgVQAAAAAOgAAAAAIAACAAAACavOxyosKvTNAiiSmX1nwJOLlxBN9p-aS4TXaszD1lThABAADx4zlfTSBC5GwoSxUTT6_mP7iqHZjThmgTJdzMZVYeZiWVT9_2HSPF3aj4BdSbYn1NqmhzeE5UXNv9iLGnCAavYjPYPzEWQpmFpn1X4DM4RWQ-n6QWl42Mxm9d7nNEZeBuvsVCZdz8kkZpo3O4jiNb5Hm0SQl_IB2BI5w6xlyv99ai_KbbpgXWdajts487lsBQ3lCauupZWIsJBn-jihXXLE9SrRDYOkZPfrXitxGVwDNY7vtNWwCIjReSic0F_uy_2rZsZjG6TT48CSkLLAGtXk-2rbqJZ1eLvQHMXeor7XXNkvnva7GjsG9fydvWEOZNliDA2Dw5OkCaj67PiXI22RMASfAy8fC1v0r3lZ0ki0AAAABm8Po0Ot1MP7VPEDv1P8irB8Jsph1_K_qZ-ZUZ9-NGeRcfCKj4EEEJiaLeTwUttLRTiw8riMtnkAqOKcj6-yWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/game/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список игр",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3d6b556b-456c-4c8a-aa13-6a52f6b38de9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAD04tQqnmieF9rDaXXMp_pnZ7iz5c_J-h9ttwF-bMWgVQAAAAAOgAAAAAIAACAAAACavOxyosKvTNAiiSmX1nwJOLlxBN9p-aS4TXaszD1lThABAADx4zlfTSBC5GwoSxUTT6_mP7iqHZjThmgTJdzMZVYeZiWVT9_2HSPF3aj4BdSbYn1NqmhzeE5UXNv9iLGnCAavYjPYPzEWQpmFpn1X4DM4RWQ-n6QWl42Mxm9d7nNEZeBuvsVCZdz8kkZpo3O4jiNb5Hm0SQl_IB2BI5w6xlyv99ai_KbbpgXWdajts487lsBQ3lCauupZWIsJBn-jihXXLE9SrRDYOkZPfrXitxGVwDNY7vtNWwCIjReSic0F_uy_2rZsZjG6TT48CSkLLAGtXk-2rbqJZ1eLvQHMXeor7XXNkvnva7GjsG9fydvWEOZNliDA2Dw5OkCaj67PiXI22RMASfAy8fC1v0r3lZ0ki0AAAABm8Po0Ot1MP7VPEDv1P8irB8Jsph1_K_qZ-ZUZ9-NGeRcfCKj4EEEJiaLeTwUttLRTiw8riMtnkAqOKcj6-yWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4538b399-4b8b-46e2-aed1-34bfbe2b556c",
+						"exec": [
+							"pm.tes",
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAD04tQqnmieF9rDaXXMp_pnZ7iz5c_J-h9ttwF-bMWgVQAAAAAOgAAAAAIAACAAAACavOxyosKvTNAiiSmX1nwJOLlxBN9p-aS4TXaszD1lThABAADx4zlfTSBC5GwoSxUTT6_mP7iqHZjThmgTJdzMZVYeZiWVT9_2HSPF3aj4BdSbYn1NqmhzeE5UXNv9iLGnCAavYjPYPzEWQpmFpn1X4DM4RWQ-n6QWl42Mxm9d7nNEZeBuvsVCZdz8kkZpo3O4jiNb5Hm0SQl_IB2BI5w6xlyv99ai_KbbpgXWdajts487lsBQ3lCauupZWIsJBn-jihXXLE9SrRDYOkZPfrXitxGVwDNY7vtNWwCIjReSic0F_uy_2rZsZjG6TT48CSkLLAGtXk-2rbqJZ1eLvQHMXeor7XXNkvnva7GjsG9fydvWEOZNliDA2Dw5OkCaj67PiXI22RMASfAy8fC1v0r3lZ0ki0AAAABm8Po0Ot1MP7VPEDv1P8irB8Jsph1_K_qZ-ZUZ9-NGeRcfCKj4EEEJiaLeTwUttLRTiw8riMtnkAqOKcj6-yWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/game/{{GameID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{GameID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт(maps)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c207b5d0-0983-4662-bbc6-5e3c6f39f9db",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Инфа о играх пользователя",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/games?start=0&count=7",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список карт пользователя",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}//api/user/0ae85bf40cc94b7daf92bd6b2af9f751/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"api",
+						"user",
+						"0ae85bf40cc94b7daf92bd6b2af9f751",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
