@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Полицейские и мошенники</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Полицейские и мошенники</h1>
+            <div class="timer">
+                Смена ролей: <span>00:00</span>
+            </div>
+        </div>
+        <div class="content">
+            <div id="progressBar" class="leftbar">
+                <ul class="comand1">
+                    <li>Название: <span>КомандаА</span></li>
+                    <li>Очки: <span>0</span></li>
+                    <li>Осталось жизней: <span>5</span></li>
+                </ul>
+                <ul class="comand2">
+                    <li>Название: <span>КомандаБ</span></li>
+                    <li>Очки: <span>0</span></li>
+                    <li>Осталось жизней: <span>5</span></li>
+                </ul>
+            </div>
+            <div class="centerbar">
+                <canvas style="width: 800px; height: 800px;"  id="map">
+
+                </canvas>
+            </div>
+            <div id="log" class="rightbar">
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="button-center">
+                <button id="btnStart" class="button" onclick="start">Старт</button>
+                <button id="btnStop" class="button" onclick="stop">Стоп</button>
+                <button id="btnConnect" class="button" onclick="join">Подключиться</button>
+                <button id="btnDisconnect" class="button" onclick="disconnect">Отключиться</button>
+                <button id="btnReconnect" class="button" onclick="reconnect">Переподключиться</button>
+                <button id="btnCancel" class="button" onclick="leave">Отменить игру</button>
+                <button id="btnExit" class="button" onclick="exit">Выход</button>
+            </div>
+        </div>    
+    </div>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="jquery.signalR.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
+    <script type="text/javascript" src="sugar-1.4.1.min.js"></script>
+    <script type="text/javascript" src="gameApi.js"></script>
+
+    <script type="text/javascript" src="wrapper.js"></script>
+    <script type="text/javascript" src="jsHelper.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+</body>
+</html>
