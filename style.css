@@ -1,0 +1,107 @@
+p {
+    line-height: 5px;
+}
+
+body {
+    background-color: RGB(100, 100, 100);
+    border: white 2px solid;
+}
+
+.title {
+    color: white;
+    text-align: center;
+}
+
+.wrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.leftBlock {
+    width: 25%;
+    color: white;
+    padding: 10px;
+}
+
+#map {
+    width: 35vw;
+    height: 35vw;
+    background: white;
+}
+
+.middleBlock {
+    width: 35vw;
+}
+
+.rightBlock {
+    width: 25%;
+    border-left: solid;
+    margin: 10px;
+}
+
+.buttons {
+    text-align: center;
+    margin: 10px;
+}
+
+.middleText {
+    text-align: center;
+    color: white;
+}
+
+.titleTeam {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#progressBar {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#btnStart, #btnStop, #btnJoin, #unjoin, #rejoin, #btnCancel, #exit  {
+    height: 30px;
+    color: white;
+    background: blue;
+    border: 0;
+    border-radius: 10%;
+}
+
+#btnStart {
+    background: green;
+}
+
+#btnStop {
+
+}
+
+#btnJoin {
+
+}
+
+#log {
+    color: white;
+    margin: 10px;
+}
+
+#rejoin {
+
+}
+
+#btnCancel {
+    background: red;
+}
+
+#exit {
+    background: red;
+}
+
+#unjoin {
+
+}
+
+hr {
+    color: white;
+}
