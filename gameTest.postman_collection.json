@@ -573,9 +573,11 @@
 				},
 				"url": {
 					"raw": "http://epruryaw0341:8085/api/games",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
 						"api",
 						"games"
