@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "26682316-e8a3-4867-871c-94c6e198adaf",
+		"name": "Token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Получить токен",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b749b05d-68de-492d-946d-ef19a86e2a42",
+						"exec": [
+							"var JsonResp= pm.response.json();",
+							"pm.environment.set(\"token\", JsonResp[\"access_token\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Alina",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "alina2302",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/token",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть инфу о себе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7cf7ae68-71ca-4d68-8480-806bedcec66d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/me",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновить инфу о себе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84f70f1d-50a0-47dc-a797-0f533d06453a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"Sviridova Alinaalll\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"alina2302\",\r\n  \"Password\": \"alina2302\",\r\n  \"ConfirmPassword\": \"alina2302\"\r\n}"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/5505673fa2284985bd661fee0f08adb1",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"5505673fa2284985bd661fee0f08adb1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить инф о пользователе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1ece916-1734-48c6-b646-5a9c973a5aa6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/5505673fa2284985bd661fee0f08adb1",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"5505673fa2284985bd661fee0f08adb1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3188a56-d4e5-4f97-8474-7011618925f9",
+						"exec": [
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200])",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/maps",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "798c9dc8-52dc-47e4-a37b-880d2e6b91c0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var JsonResp= pm.response.json();",
+							"pm.environment.set(\"GameID\", JsonResp[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"al34\",\r\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\r\n  \"SwitchTimeout\": 1,\r\n  \"StartupTeamLives\":  60000,\r\n  \"PoliceSpeed\": 4,\r\n  \"ThiefSpeed\": 5\r\n}"
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/game",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список игр",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6aa3d68e-f9b0-4497-b8b4-50c027559efe",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/game",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2baf9978-aa3d-49cc-bd28-8e181669c5d7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/game/1937332f9acd4e46bbb62f05f79f0970",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"1937332f9acd4e46bbb62f05f79f0970"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55ec5e6a-b7de-49bb-a353-f2f2248e63ec",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/map",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт пользователя",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "984325a4-8f71-48c7-9446-5dbf55cd2ab7",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/f11a89fd6c2e42be8238bf0d370a00a5/maps/",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"f11a89fd6c2e42be8238bf0d370a00a5",
+						"maps",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить инфу о играх пользователя",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06d8ca32-b219-4435-9eb1-ceb22685ee83",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "epruryaw0341:8085/api/games?start=1&count=2",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
