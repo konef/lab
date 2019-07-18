@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "6f757872-3eec-46e3-b542-8ebadab41e9d",
+		"name": "MYFAVOURITECOLLECTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75d33a3f-74a8-486e-8c0c-749e07c75610",
+						"exec": [
+							"var jsonResp=pm.response.json();",
+							"postman.setEnvironmentVariable(\"token\",jsonResp[\"access_token\"]);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "ArbuzZz",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Pitenina1999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/token",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WatchInfoAboutMyself",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e41fbf9a-43bd-4a67-83e2-98cc9ba507bd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/me",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdInfAboutMyself ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1722faae-b2a0-4b21-8264-7048f341282b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "NativeName",
+							"value": "Denis Pitenin222",
+							"type": "text"
+						},
+						{
+							"key": "Role",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "OldPassword",
+							"value": "Pitenina1999",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "Pitenina1999",
+							"type": "text"
+						},
+						{
+							"key": "ConfirmPassword",
+							"value": "Pitenina1999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/0c37e28bef4943c895f9e15da0c6e0d4",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"0c37e28bef4943c895f9e15da0c6e0d4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetInfAboutMyself ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7fd770cc-6fe8-4bdb-b9b6-81a3e1d08d4a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/88f80c8e6d0d41018b51f633bab39729",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"88f80c8e6d0d41018b51f633bab39729"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMapsList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c22a50e4-a965-43e6-9eed-23d5fb709e89",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/map",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "abb27f18-cbd1-46e4-8c8c-2647a6abcd06",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});var jsonResp=pm.response.json();",
+							"postman.setEnvironmentVariable(\"gameID\",jsonResp[\"ID\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "TESTDEN1",
+							"type": "text"
+						},
+						{
+							"key": "MapId",
+							"value": "7611d4fd6bbe48fa8b9712efbade409e",
+							"type": "text"
+						},
+						{
+							"key": "SwitchTimeout",
+							"value": "6000",
+							"type": "text"
+						},
+						{
+							"key": "StartupTeamLives",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "PoliceSpeed",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "ThiefSpeed",
+							"value": "4.4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/game",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGameList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcd9aee0-03ab-429f-ba89-ac59b54c92d0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/game",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetInfAboutUser'sGames",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7983899a-ba06-4c39-9763-09009ec2c0c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/games?start=1&count=1",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3bc0c241-e11a-4329-9793-4e9077b681e9",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/game/0dc79f4f2e5d48a29a3dc4229a58dacc",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"0dc79f4f2e5d48a29a3dc4229a58dacc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMapsList(maps)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d234cd1d-8ec6-4c69-8d82-b4cc5705963b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "epruryaw0341:8085/api/maps",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMapsListOfUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb30036d-b7ea-423f-bf2c-57969f94729c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAAA8VpL4kdOIdzQvTdEa5BDvR30s-f-tmcguS3ZUCFKgdQAAAAAOgAAAAAIAACAAAACS_904KKvAqUi_oZFdhVjPYNCfMbEe7uQ1rGA8fSSTeRABAABZ3vPjCng1Vhw5NTIth0f3hw6F_joYsoAhTyXfIEFeD--tr96vxlmQS5JNoRe1JZGhmYH0pmFfNYvhZs54S_gLnDKBColvqEqu3gzZzFEYdwDZtuAdbhyj3_WqcTnZrrYVzjmEYzw13sE2rY7h7miFe6wspJCObxkrXqHFZeN5CrV09VGWzWccdDidLHWKW3upUH-FQSK4-32cUFbGpDevjzAlP0pgp2ACFMdnCoeLW361S7QGhk57xd5Q81YWxQqTxxnvqk1ymIDEq9y0MQZp2Gu5eyLHLfZ5tHjID-szTSfVz5Ba7b3XxO4vIye8fNz9hwxs7NZuCO6vlA1wEmP5SGmCQZj-HkfBtW-pvFvlTEAAAABivA-EX-V6ZWjSqbXcsfO2FVOFko_9OGlYSfHxBJarunQE6-S7ObfubSZVENTdtv4eGAs3nK1MhfVbWksFYuXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "epruryaw0341:8085/api/user/0c37e28bef4943c895f9e15da0c6e0d4/maps",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"0c37e28bef4943c895f9e15da0c6e0d4",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
