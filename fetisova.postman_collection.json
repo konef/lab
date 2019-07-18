@@ -1,0 +1,536 @@
+{
+	"info": {
+		"_postman_id": "5c5c1f25-a924-446f-9df5-acbe1ca2f13b",
+		"name": "fetisova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16ea6050-22b1-4194-bd35-41d54d72f734",
+						"exec": [
+							"",
+							"",
+							"var JsonResp = pm.response.json();",
+							"pm.environment.set(\"token\", JsonResp[\"access_token\"]);",
+							"",
+							"",
+							"pm.test(\"Status code name has string\", function(){",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "iriska",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "4862vbnm5SD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/token",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "инфа о себе",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/me",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "обновить инфу о себе",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADqOEFgNfHsdb57SKCOORRHmHAxPteoCN2vXE-KpRLSFQAAAAAOgAAAAAIAACAAAABr4gicNVHmIkctG8aX0jNBIjP_T-rSEpXHvIb1cKF1pRABAABLPCtbJb790sy7Mxu2rFCA9j0twY4A1O7sZgUah5oDMwlguDfjjc_QIWHuqAdannw2RAxCzDh5w2N9hlzvaXXMxByWr7_HFBWkd74XbhvXVdo1b8AIllI3eQsbkxhAJkN86_AzvMg2EFn5IN9vpFVTmTb8BYiTU1ZA7YRhU0WMRAvXkV4GrrfNrMlAUp9zZVYy-GHdluAz_U9GupWE18AQJXV12vdfzFmqhELsImP7tQmaiV-zNt8hxjEWLR4uf-SLz-bCb-sAy3gHbg52Rrkcc-7IO0Q4jF-fWG7e3FpDjRllRHq-krHcTQZdN7zZOCRvlV3va6rTwQqhOF7mTA6J853pKPLqcKXsne22UCWPhEAAAAB7m3MwIeE2cHlAgsr5eznKm89WGvdQ7V9cq0ASkjBZ6QjmjtRo6iND04zkFyJNdJp5I4YFKqJ3tXa9X9KZNG2z",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"Fetisova Juliaa\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"4862bnm5SD\",\r\n  \"Password\": \"4862vbnm5SD\",\r\n  \"ConfirmPassword\": \"4862vbnm5SD\"\r\n}"
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/e41c879bef0f4c6195b8ff306b0559dd",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"e41c879bef0f4c6195b8ff306b0559dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "инфа о пользователе",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAADqOEFgNfHsdb57SKCOORRHmHAxPteoCN2vXE-KpRLSFQAAAAAOgAAAAAIAACAAAABr4gicNVHmIkctG8aX0jNBIjP_T-rSEpXHvIb1cKF1pRABAABLPCtbJb790sy7Mxu2rFCA9j0twY4A1O7sZgUah5oDMwlguDfjjc_QIWHuqAdannw2RAxCzDh5w2N9hlzvaXXMxByWr7_HFBWkd74XbhvXVdo1b8AIllI3eQsbkxhAJkN86_AzvMg2EFn5IN9vpFVTmTb8BYiTU1ZA7YRhU0WMRAvXkV4GrrfNrMlAUp9zZVYy-GHdluAz_U9GupWE18AQJXV12vdfzFmqhELsImP7tQmaiV-zNt8hxjEWLR4uf-SLz-bCb-sAy3gHbg52Rrkcc-7IO0Q4jF-fWG7e3FpDjRllRHq-krHcTQZdN7zZOCRvlV3va6rTwQqhOF7mTA6J853pKPLqcKXsne22UCWPhEAAAAB7m3MwIeE2cHlAgsr5eznKm89WGvdQ7V9cq0ASkjBZ6QjmjtRo6iND04zkFyJNdJp5I4YFKqJ3tXa9X9KZNG2z",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/user/e41c879bef0f4c6195b8ff306b0559dd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"e41c879bef0f4c6195b8ff306b0559dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список карт",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "374aa1f2-dff5-4df8-a2d0-5d024fb98228",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "создать игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4307b565-91d1-4a09-984c-3ee046928a8e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"iriska\",\r\n  \"MapId\": \"d5d0d2e9cef14ef5abc95d872fc522a6\",\r\n  \"SwitchTimeout\": 10,\r\n  \"StartupTeamLives\": 10,\r\n  \"PoliceSpeed\": 1,\r\n  \"ThiefSpeed\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список игр",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c214113c-4110-4d53-86a8-191135271845",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "инфа о конкретной игре",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "28a45f7f-1307-4600-8542-1e74da48fcce",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/game/583f6243498944d3947c26760be12a5d",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"583f6243498944d3947c26760be12a5d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Инфа о играх пользователя",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/games?start=1&count=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "удалить игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75ad8854-ea0f-468c-a420-b4f51bafbf31",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/game/7de0da68f85a4f4083aba7e5a3e1168f",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"game",
+						"7de0da68f85a4f4083aba7e5a3e1168f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список карт(maps)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf0cc0da-6dcd-4a19-992b-70a70396eb8e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"maps"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список карт пользователя",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03d817fb-df23-4815-8c02-ed90b6b729bb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/user/e41c879bef0f4c6195b8ff306b0559dd/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"e41c879bef0f4c6195b8ff306b0559dd",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
