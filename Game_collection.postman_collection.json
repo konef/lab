@@ -520,64 +520,6 @@
 			},
 			"response": []
 		},
-		{
-			"name": "User Maps",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4308bc7a-1f5d-4f71-8813-bd540f18dd94",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAABQGV2BZYwh6MxB6QJOPpQWqQQhEg7NowTe9Bahlr4XrgAAAAAOgAAAAAIAACAAAAChdJWMJaKIsiMfUuEv7LjRWZNfjheQwaMufYhwgWRFMhABAACU0pJNyCaQsQCzmO017MTp3cPnoX5NmBc0P-eyt-IvxNSLZ0vnCpouVAQR1Vyg9TerLjAz6zN7lf5_xAjaF56cbKzQ0tYcWG7rMTagu4ZoepdvAg9d-QmgQ5AG4SF91b2HcW1hMycxE0kV-tpk1WjtnPpuu4KT3n4Ta5Q5wLzqPg-Kxq3NI_EKpbeLjSUAkChjOFeGz_8EYbjvmuKFTy0caAryEqU-lqBfJRoZ_ZBVjh6oVmO8HSqIuUJWhGtnphDPqu3xXHlKqh-XwaPCFB7lz3bXfDClCW682aYf_UBF-jLFCsl6LBQEJ3VnWSoo28hV9FfZHcPsw3yppy8obgBEDAMJJ7-_LcxqfvY0-D99jkAAAAApPDsg7Dtp4YOEEQ1IfujT-BzzgZxxClwNrMcsfYVdfBIh1SuXT-HEDnpXSeTVHbOCZ2BxE_CMg_CLNBjKHRwR",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "epruryaW0341:8085/api/user/{{UserID}}/maps",
-					"host": [
-						"epruryaW0341"
-					],
-					"port": "8085",
-					"path": [
-						"api",
-						"user",
-						"{{UserID}}",
-						"maps"
-					]
-				}
-			},
-			"response": []
-		}
+
 	]
 }
