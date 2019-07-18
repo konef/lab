@@ -1,0 +1,15 @@
+.progress {
+    height: 30px;
+}
+
+textarea {
+    resize: none;
+}
+
+.big-font {
+    font-size: 18px;
+}
+
+body {
+    overflow: hidden;
+}
