@@ -49,7 +49,7 @@
 						},
 						{
 							"key": "password",
-							"value": "123qweasd",
+							"value": "123qwe"",
 							"type": "text"
 						}
 					]
@@ -89,7 +89,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/game.html"
+							"src": "/var/lib/jenkins/workspace/Bolshakov_A/game.html"
 						}
 					]
 				},
@@ -136,7 +136,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/game.js"
+							"src": "/var/lib/jenkins/workspace/Bolshakov_A/game.js"
 						}
 					]
 				},
@@ -183,7 +183,7 @@
 						{
 							"key": "",
 							"type": "file",
-							"src": "/var/lib/jenkins/workspace/konev_i_pipe/fgsdgf.css"
+							"src": "/var/lib/jenkins/workspace/Bolshakov_A/fgsdgf.css"
 						}
 					]
 				},
