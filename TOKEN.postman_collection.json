@@ -322,9 +322,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/maps",
+					"raw": "http://epruryaw0341:8085/api/maps",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
