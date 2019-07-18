@@ -63,9 +63,9 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/token",
+					"raw": "http://epruryaw0341:8085/token",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"token"
@@ -121,9 +121,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/me",
+					"raw": "http://epruryaw0341:8085/api/me",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -198,9 +198,9 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/user/{{userId}}",
+					"raw": "http://epruryaw0341:8085/api/user/{{userId}}",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -253,9 +253,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/user/{{userId}}",
+					"raw": "http://epruryaw0341:8085/api/user/{{userId}}",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -308,9 +308,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/map",
+					"raw": "http://epruryaw0341:8085/api/map",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -377,9 +377,9 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/game",
+					"raw": "http://epruryaw0341:8085/api/game",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -419,9 +419,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/games",
+					"raw": "http://epruryaw0341:8085/api/games",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -473,9 +473,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/game/{{gameId}}",
+					"raw": "http://epruryaw0341:8085/api/game/{{gameId}}",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -516,9 +516,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/games",
+					"raw": "http://epruryaw0341:8085/api/games",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -567,9 +567,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/game/{{gameId}}",
+					"raw": "http://epruryaw0341:8085/api/game/{{gameId}}",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -622,9 +622,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/maps",
+					"raw": "http://epruryaw0341:8085/api/maps",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -676,9 +676,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{url}}/api/user/{{userId}}/maps",
+					"raw": "http://epruryaw0341:8085/api/user/{{userId}}/maps",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -729,9 +729,9 @@
 					"raw": "{\r\n  \"NativeName\": \"igor_kozankov77\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"nokia5131\",\r\n  \"Password\": \"nokia5131\",\r\n  \"ConfirmPassword\": \"nokia5131\"\r\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/user/{{userId}}",
+					"raw": "http://epruryaw0341:8085/api/user/{{userId}}",
 					"host": [
-						"{{url}}"
+						"http://epruryaw0341:8085"
 					],
 					"path": [
 						"api",
