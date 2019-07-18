@@ -113,9 +113,9 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{u}}/api/me",
+					"raw": "epruryaw0341:8085/api/me",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -243,9 +243,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{u}}/api/map",
+					"raw": "epruryaw0341:8085/api/map",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -291,9 +291,9 @@
 					"raw": "{\r\n  \"Name\": \"1111\",\r\n  \"MapId\": \"7611d4fd6bbe48fa8b9712efbade409e\",\r\n  \"SwitchTimeout\": 6000,\r\n  \"StartupTeamLives\": 1414,\r\n  \"PoliceSpeed\": 3,\r\n  \"ThiefSpeed\": 4\r\n}"
 				},
 				"url": {
-					"raw": "{{u}}/api/game",
+					"raw": "epruryaw0341:8085/api/game",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -329,9 +329,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{u}}/api/game",
+					"raw": "epruryaw0341:8085/api/game",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -367,9 +367,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{u}}/api/games",
+					"raw": "epruryaw0341:8085/api/games",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -418,9 +418,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{u}}/api/game?start=1&count=1",
+					"raw": "epruryaw0341:8085/api/game?start=1&count=1",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -469,9 +469,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{u}}/api/game/d768ebd6efba47ba981c133e303e7af6",
+					"raw": "epruryaw0341:8085/api/game/d768ebd6efba47ba981c133e303e7af6",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -508,9 +508,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{u}}/api/maps",
+					"raw": "epruryaw0341:8085/api/maps",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
@@ -546,9 +546,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{u}}/api/user/f7c9624c6d26456588d75ae4e5113023/maps",
+					"raw": "epruryaw0341:8085/api/user/f7c9624c6d26456588d75ae4e5113023/maps",
 					"host": [
-						"{{u}}"
+						"epruryaw0341:8085"
 					],
 					"path": [
 						"api",
