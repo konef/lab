@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="game.css" >
+    
+    <title>Полицейские и мошенники</title>
+</head>
+<body>
+    <div class=MainDiv>
+        <div class="header">
+            <h1>Полицеские и мошенники</h1> 
+            <p class="change">Смена ролей</p>
+            <div class="textboxOuter">
+                <input class="textbox" type="text">
+            </div>
+        </div>
+
+        <div class="LeftBlock">
+            <p class="name">Название: <span id="ftName">Синяки</span></p>
+            <p>Очки:<span id="ftScore">0</span></p> 
+            <p>Осталось жизней:<span id="ftLifes">5</span></p> <br>
+            <p class="name">Название: <span id="stName">Курилки</span></p>
+            <p>Очки:<span id="stScore">0</span></p> 
+            <p>Осталось жизней:<span id="stLifes">5</span></p>
+        </div>
+
+        <div class="center">
+            <canvas id="map">
+
+
+            </canvas>
+        </div>
+
+        <div class="RightBlock">
+            <textarea class="textArea" id="log" readonly></textarea>
+        </div>
+
+        <div class="footer">
+                <p type="submit" class="button" id="btnStart" onclick="start()"><button>Старт</button> </p>
+                <p type="submit" class="button" id="btnStop" onclick="stop()"><button>Стоп</button> </p>
+                <p type="submit" class="button" onclick="join()"><button>Подключиться</button> </p>
+                <p type="submit" class="button" onclick="live()"><button>Отключиться</button> </p>
+                <p type="submit" class="button" onclick="reconnect()"><button>Переподключиться</button> </p>
+                <p type="submit" class="button" id="btnCancel" onclick="cancel()"><button>Отменить игру</button> </p>
+                <p type="submit" class="button" onclick="exit()"><button>Выход</button> </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/wrapper.js"></script>
+    <script type="text/javascript" src="../js/jsHelper.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.signalR.js"></script>
+    <script type="text/javascript" src="../js/gameApi.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+</body>
+</html>
