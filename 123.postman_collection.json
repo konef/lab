@@ -58,11 +58,14 @@
 					]
 				},
 				"url": {
-					"raw": "http://epruryaw0341:8085/token",
+					"raw": "http://epruryaw0341:8085//token",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"token"
 					]
 				}
@@ -241,10 +244,13 @@
 				},
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/user/0ae85bf40cc94b7daf92bd6b2af9f751",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"user",
 						"0ae85bf40cc94b7daf92bd6b2af9f751"
@@ -274,10 +280,13 @@
 				],
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/map",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"map"
 					]
@@ -321,10 +330,13 @@
 				},
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/game",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"game"
 					]
@@ -368,14 +380,17 @@
 					}
 				],
 				"url": {
-					"raw": "http://epruryaw0341:8085//api/game/",
+					"raw": "http://epruryaw0341:8085//api/game/{{GameID}}",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"game",
-						""
+						"{{GameID}}"
 					]
 				}
 			},
@@ -412,10 +427,13 @@
 				"header": [],
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/game",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"game"
 					]
@@ -472,10 +490,13 @@
 				],
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/game/{{GameID}}",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"game",
 						"{{GameID}}"
@@ -516,10 +537,13 @@
 				],
 				"url": {
 					"raw": "http://epruryaw0341:8085//api/maps",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"maps"
 					]
@@ -556,11 +580,14 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://epruryaw0341:8085//api/games?start=0&count=7",
+					"raw": "http://epruryaw0341:8085/api/games?start=0&count=7",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
+						"",
 						"api",
 						"games"
 					],
@@ -600,10 +627,12 @@
 					}
 				],
 				"url": {
-					"raw": "http://epruryaw0341:8085///api/user/0ae85bf40cc94b7daf92bd6b2af9f751/maps",
+					"raw": "http://epruryaw0341:8085//api/user/0ae85bf40cc94b7daf92bd6b2af9f751/maps",
+					"protocol": "http",
 					"host": [
-						"http://epruryaw0341:8085/"
+						"epruryaw0341"
 					],
+					"port": "8085",
 					"path": [
 						"",
 						"api",
