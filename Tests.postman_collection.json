@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ef5082e5-8f82-44cc-99e5-90fcef3d38cb",
+		"_postman_id": "e8416f50-2c10-4a43-93f1-58e6d6512a4c",
 		"name": "Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -441,7 +441,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "epruryaw0341:8085/api/game/{{GameID}}",
+					"raw": "epruryaw0341:8085/api/game/{{GameID}}?",
 					"host": [
 						"epruryaw0341"
 					],
@@ -599,6 +599,21 @@
 		},
 		{
 			"name": "IDuserInfo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1ca8a59-b91f-44a8-a123-e742208b278a",
+						"exec": [
+							"pm.test(\"Status code ib 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
