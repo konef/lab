@@ -1,0 +1,96 @@
+body{
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center
+}
+H1{text-align: center}
+
+p {
+    line-height: 5px;
+}
+
+.middle {
+    border-top: white 1px solid;
+    border-bottom: white 1px solid;
+    display: flex;
+    flex-direction: row;
+    width:100%
+}
+
+.canvas {
+    background-color: white;
+    width:730px;
+    height: 730px;
+}
+
+.center {
+    width:98%
+}
+
+.center p{
+    margin: auto;
+    line-height: 1em;
+    text-align: center;
+    border-right: white 1px solid;
+}
+
+.progb{
+    width:730px;
+}
+
+.left {
+    margin-left: auto;
+    width:24%;
+    text-align: left
+}
+
+.right {
+    background-color: darkslategray;
+    color: white;
+    margin-right: auto;
+    width:24%;
+    border-left: white 1px solid;
+    font-size: 9pt
+}
+
+.button {
+    margin: auto
+}
+
+.button button{
+    text-align: center;
+    float: left
+}
+
+.start {
+    background-color:  green;
+    color: white
+}
+
+.stop {
+    background-color: rgb(206, 35, 35);
+    color: white 
+}
+
+.btn-dialog{
+    background: dodgerblue;
+    color: white
+}
+
+.btn-warm {
+    background: rgb(206, 35, 35);
+    color: white
+}
+
+.dialog-group > button {
+    margin: 1% 0 0 0;
+  border: 0;
+  height: 25px;
+  border-radius: 3px;
+}
+
+.dialog-group {
+	text-align: center;
+}
