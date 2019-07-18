@@ -1,0 +1,702 @@
+{
+	"info": {
+		"_postman_id": "8b058ea9-e541-4c69-908c-738748f1a58f",
+		"name": "Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Get token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ff90adb-4682-4282-ac58-1ed0db2269f0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Has \"token_type\": \"bearer\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.token_type).to.eql(\"bearer\");",
+							"});",
+							"",
+							"var jsonObject = pm.response.json();",
+							"pm.environment.set(\"token\", jsonObject);",
+							"postman.setEnvironmentVariable(\"token\", jsonObject[\"access_token\"]);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ba3e7ef9-1b7e-4b2e-8a3e-6f79d3c03ab1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "MyAwesomeTestUser",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get info about me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "963fcf88-3115-4daa-ad4a-dd23d0ba450f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Has \"id\": \"1896d2c2c79b4819a957c743cff2cfb7\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"1896d2c2c79b4819a957c743cff2cfb7\");",
+							"});",
+							"",
+							"var jsonObject = pm.response.json();",
+							"pm.environment.set(\"user_id\", jsonObject);",
+							"postman.setEnvironmentVariable(\"user_id\", jsonObject[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Update user info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5cb0ce6f-eea0-4b81-9fce-0d902adc058c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Has \"nativeName\": \"MyEDITEDAwesomeTestUser\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.nativeName).to.eql(\"MyEDITEDAwesomeTestUser\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nativeName",
+							"value": "MyEDITEDAwesomeTestUser",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/user/{{user_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get user info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fadb5b71-cb70-4bb0-9e84-785be4ca9bf1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Has \"nativeName\": \"MyEDITEDAwesomeTestUser\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.nativeName).to.eql(\"MyEDITEDAwesomeTestUser\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/user/{{user_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get map list (map)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe3f389f-baf1-41e9-bc11-0a3625466456",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonObject = pm.response.json();",
+							"pm.environment.set(\"map_id\", jsonObject);",
+							"postman.setEnvironmentVariable(\"map_id\", jsonObject[0][\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/map",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Create game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d35eb6fd-bbcb-41a7-810a-b101c5265d55",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Game gas \"name\": \"myAwesomeTestGame\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"myAwesomeTestGame\");",
+							"});",
+							"",
+							"var jsonObject = pm.response.json();",
+							"pm.environment.set(\"game_id\", jsonObject);",
+							"postman.setEnvironmentVariable(\"game_id\", jsonObject[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "myAwesomeTestGame",
+							"type": "text"
+						},
+						{
+							"key": "MapId",
+							"value": "{{map_id}}",
+							"type": "text"
+						},
+						{
+							"key": "SwitchTimeout",
+							"value": "60000",
+							"type": "text"
+						},
+						{
+							"key": "StartupTeamLives",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "PoliceSpeed",
+							"value": "4.0",
+							"type": "text"
+						},
+						{
+							"key": "ThiefSpeed",
+							"value": "4.4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get game list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "455a9b60-9ef0-4b14-9c8f-b091fd900111",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('First game in list has \"name\": \"myAwesomeTestGame\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql(\"myAwesomeTestGame\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/game",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get info about particular game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18ef46ad-4889-4075-b257-ebac27440310",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Game gas \"name\": \"myAwesomeTestGame\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"myAwesomeTestGame\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/game/{{game_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{game_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Get user games info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eddab32e-4ef5-44d2-95fc-7ee2bc745318",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Game gas \"name\": \"myAwesomeTestGame\"', function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql(\"myAwesomeTestGame\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Delete game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ce1687e-9562-4cea-9bf5-941a25c52528",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/game/{{game_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"{{game_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. Get map list (maps)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1d90ed51-fd1c-4873-ad7c-74d6ce518720",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12. Get user map list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "facbabe4-fe83-490f-9993-5ac0eee1c546",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAA6opWFy7qu0q82upHXQI7UgAAAAACAAAAAAAQZgAAAAEAACAAAACkxAKbV02bdR4olk-w19WyGpapiwdyEAcSvsRKMSDTKgAAAAAOgAAAAAIAACAAAABDk46wIr-23KV4fOWV1Wr4qy4vHNUryqwOTMcBYiOUVhABAAD0O42Et5cnHlJSWXdsUTxRGoBz_1ULDWOt8ccoS4G3DZ7D-ZvroMLsaMakOshxvlOC7nTZ4yg_7JvTTZ_OlltiPQ8bpE0oeAyHPdnOu0RIURkHs1LTR6vs7lRZUkuIBFHNbcsT5Ut5soF-fPmUZIel_3vjRLj64jpG9uS_sAHRrCUlynf3oaxPXP6nNa0J3Vki9eha0liVHTduTDdpJS9sbQbc8EERkMgIhnOleDdmdeN-payuj1_9PfYbU2Cz_USGX31FRwb7erqz6Gkr8cs-h9XNlqGcc3jrhM3ESkbhnxgPDdeyIhvJibAtzL-QegFleFhBNdOgUqttqcyawpM9D3x04b5pMQFVvT6XMyUapEAAAAAehNPKZgkoTV-zueu8fS8aURx8kJ2pb5ff71BlGlQXNfgLkB2RGdOhbLV9Ue5vDeJf8FAF4DD7jnA5Al2-ut9o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/user/{{user_id}}/maps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
