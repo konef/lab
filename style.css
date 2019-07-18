@@ -1,0 +1,102 @@
+body{background-color: darkslategray;
+color: white;
+display: flex;
+flex-direction: column;
+text-align: center;
+}
+h1{text-align: center}
+
+.wrap {
+
+    display: flex;
+    border-top: white 1px solid;
+    border-bottom: white 1px solid;
+}
+
+.center{
+    width: 98%;
+}
+
+.center p{
+    margin: auto;
+    line-height: 1em;
+    text-align: center;
+}
+
+.middle{
+    margin: auto;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    
+}
+
+.buttonscenter{
+    text-align: center;
+}
+
+.canvas{
+    background-color: whitesmoke;
+    width: 710px;
+    height: 710px;
+}
+
+.left{
+    flex-direction: row;
+    text-align: left;
+    margin-left: auto;
+    width: 10%;
+}
+
+.right{
+    border-left: white 1px solid;
+    flex-direction: row;
+    margin-right: auto;
+    width: 20%;
+    background-color: darkslategrey;
+}
+
+.progress{
+    width: 710px;
+}
+
+.first{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.second{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.buttongreen{
+    background: green;
+    color: white;
+
+}
+
+.buttonblue{
+    background: dodgerblue;
+    color: white;
+}
+
+.buttonred{
+    background: red;
+    color: white;
+}
+
+.container {
+	position: absolute;
+	margin: auto;
+	padding: 0;
+	top: 2.5%; left: 0; right: 0;
+	height: 95%;
+	width: 80%;
+	border: 0;
+	box-shadow: 0 0 25px 5px #ccc;	
+	color: white;
+	min-height: 460px;
+	min-width: 770px;
+	max-width: 1150px;
+}

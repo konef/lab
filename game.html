@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Игра "Полицейские и мошенники"</title>
+
+    <script src="../js/jquery.js" type="text/javascript"></script>
+    <script src="../js/jquery.signalR.js" type="text/javascript"></script> 
+    <script src="../js/gameApi.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Полицейские и мошенники</h1>
+    <div class="wrap">
+
+        <div class="left">
+            <div class="first">
+                <p><b>Название: <span  id="nameFirstTeam">Синяки</span></b></p>
+                <p>Очки:  <span  id="scoreFirstTeam">0</span></p>
+                <p>Осталось жизней: <span  id="lifesFirstTeam">5</span></p>    
+            </div>
+            <br>
+            <div class="second">
+                <p><b>Название: <span  id="nameSecondTeam">Курилки</span></b></p>
+                <p>Очки: <span  id="scoreSecondTeam">0</span></p>   
+                <p>Осталось жизней: <span  id="lifesSecondTeam">5</span></p>    
+            </div>
+        </div>
+
+        <div class="middle">
+
+
+            <div class="center">
+                <p>Смена ролей</p>
+                <progress class="progress" id="progressBar"></progress>
+                <div>
+                    <canvas class="canvas" id="map">
+
+                    </canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <textarea class="right" id="log">Игра готова к запуску</textarea>
+
+    </div>
+    <hr>
+
+    <div class="buttonscenter">
+        <button class="buttongreen" id="btnStart" onclick="start()">Старт</button>
+        <button class="buttonred" id="btnStop" onclick="stop()"> Стоп</button>
+        <button class="buttonblue" id="btnConnect" onclick="join()">Подключиться</button>
+        <button class="buttonblue" id="btnDisconnect" onclick="leave()">Отключиться</button>
+        <button class="buttonblue" id="btnReconnect" onclick="reconnect()">Переподключение</button>
+        <button class="buttonred" id="btnCancel" onclick="cancel()">Отменить игру</button>
+        <button class="buttonred" id="btnExit" onclick="exit()">Выход</button>
+    </div>
+
+    <script src="../js/wrapper.js"></script>
+    <script src="../js/jsHelper.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
