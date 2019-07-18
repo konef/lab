@@ -57,7 +57,7 @@
 				"url": {
 					"raw": "epruryaw0341:8085/token",
 					"host": [
-						"epruryaw0341"
+						"http://epruryaw0341"
 					],
 					"port": "8085",
 					"path": [
