@@ -1,0 +1,720 @@
+{
+	"info": {
+		"_postman_id": "afae54da-3a75-4486-9296-2eaab0009812",
+		"name": "gameTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1af318ef-0fc7-4152-84b5-02791ce12401",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).access_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "eugenia98",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "eugenia21",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/token",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInfoUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be996748-8603-4d96-85d0-0af1e4a9ea39",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.environment.set(\"UserID\", JSON.parse(responseBody).id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/me",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putInfoUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "efac4734-af72-487d-b8f7-a5fea9f8c140",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "NativeName",
+							"value": "ЕвгенияКонохова",
+							"type": "text"
+						},
+						{
+							"key": "Role",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "OldPassword",
+							"value": "eugenia21",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "eugenia98",
+							"type": "text"
+						},
+						{
+							"key": "ConfirmPassword",
+							"value": "eugenia98",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/{{UserID}}",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"ЕвгенияКонохова\",\r\n  \"Role\": \"1\",\r\n  \"OldPassword\": \"eugenia98\",\r\n  \"Password\": \"eugenia21\",\r\n  \"ConfirmPassword\": \"eugenia21\"\r\n}"
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/{{UserID}}",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInfoUserID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3f69697-0574-4a98-89f9-50cc16cf278a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/{{UserID}}",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMap",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8cb421e-2671-46ba-a405-faeec848bb16",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/map",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a93b8565-394d-48d8-93a2-10319f4694dc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.environment.set(\"GameID\", JSON.parse(responseBody).id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "qwerty",
+							"type": "text"
+						},
+						{
+							"key": "MapId",
+							"value": "84927685f5e54f95afad084a6c8dde49",
+							"type": "text"
+						},
+						{
+							"key": "SwitchTimeout",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "StartupTeamLives",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "PoliceSpeed",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "ThiefSpeed",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGames",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8948e138-8470-4057-a952-c96ccdc23cf2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInfoGameId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4f5b9b2-df06-4ffb-959c-26af5d708d0e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game/{{GameID}}",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"{{GameID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGamesUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ebe4d0b-b13b-4707-af04-70fdb6e6c068",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "start",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "count",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/games",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteGame",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c09690c6-2bf4-433a-af1b-f397c17fb120",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/game/{{GameID}}",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"{{GameID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMaps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e98535f-6b15-4777-9165-3017a3163baf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserMaps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c46f4b86-0f74-453c-9c66-97b0daa5cb50",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://epruryaw0341:8085/api/user/{{UserID}}/maps",
+					"protocol": "http",
+					"host": [
+						"epruryaw0341"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"{{UserID}}",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
