@@ -45,7 +45,7 @@ function join() {
 function exit() {
 	gameController.disconnect();
 	jsHelper.setNewPageUrl('index.html');
-};
+
 
 //Moving---------------------------------------------------------------------------
 
