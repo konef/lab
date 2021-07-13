@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "http://epruryaw0341:8085/api/user",
+			"name": "http://212.12.28.76:8085/api/user",
 			"event": [
 				{
 					"listen": "test",
@@ -36,10 +36,10 @@
 					"raw": "{\r\n  \"Login\": \"testUser\",\r\n  \"NativeName\": \"UserModel\",\r\n  \"Password\": \"Password\",\r\n  \"ConfirmPassword\": \"Password\"\r\n}"
 				},
 				"url": {
-					"raw": "http://epruryaw0341:8085/api/user",
+					"raw": "http://212.12.28.76:8085/api/user",
 					"protocol": "http",
 					"host": [
-						"epruryaw0341"
+						"212.12.28.76"
 					],
 					"port": "8085",
 					"path": [
@@ -51,7 +51,7 @@
 			"response": []
 		},
 		{
-			"name": "http://epruryaw0341:8085/api/game",
+			"name": "http://212.12.28.76:8085/api/game",
 			"event": [
 				{
 					"listen": "test",
@@ -81,10 +81,10 @@
 					"raw": "{\r\n  \"Name\": \"Game1\",\r\n  \"SwitchTimeout\": 10,\r\n  \"StartupTeamLives\": 3,\r\n  \"PoliceSpeed\": 1,\r\n  \"ThiefSpeed\": 1\r\n}"
 				},
 				"url": {
-					"raw": "http://epruryaw0341:8085/api/game",
+					"raw": "http://212.12.28.76:8085/api/game",
 					"protocol": "http",
 					"host": [
-						"epruryaw0341"
+						"212.12.28.76"
 					],
 					"port": "8085",
 					"path": [
