@@ -4,7 +4,55 @@ var gameController = new GameController(cvs);
 var lastDirection = -1; //переменная хранит в себе значение текущего направления игрока
 var blockSizeX, blockSizeY;
 var icons = gameController.icons;
-var ctlProgr
+var ctlProgress = document.getElementById('progressBar');
+var logBox = document.getElementById('log');
+
+var setUI = setTimeout(function () {
+	if (gameController.user.id !== gameController.game.owner.id) {
+		document.getElementById('btnStart').classList.add('hidden');
+		document.getElementById('btnStop').classList.add('hidden');
+		document.getElementById('btnCancel').classList.add('hidden');
+	}
+}, 1000);
+
+
+//Handlers-------------------------------------------------------------------------
+
+function start() {
+	gameController.start();
+};
+
+function stop() {
+	gameController.stop();
+};
+
+function reconnect() {
+	gameController.reconnect();
+};
+
+function cancel() {
+	gameController.cancel();
+};
+
+function leave() {
+	gameController.leave();
+};
+
+function join() {
+	gameController.join();
+};
+
+function exit() {
+	gameController.disconnect();
+	jsHelper.setNewPageUrl('index.html');
+
+
+//Moving---------------------------------------------------------------------------
+
+document.addEventListener('keydown', movePlayer);
+
+function movePlayer (event) {
+	var event = event || window.event;
 		
 	var keyCode = event.keyCode;
 	if (keyCode) {
