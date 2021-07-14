@@ -1,0 +1,621 @@
+{
+	"info": {
+		"_postman_id": "97b8e123-9f15-4679-9353-36eed4a4d94a",
+		"name": "Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Login\": \"Swift1\",\r\n  \"NativeName\": \"Test User\",\r\n  \"Password\": \"12345\",\r\n  \"ConfirmPassword\": \"12345\"\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/user",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonResp = pm.response.json();",
+							"postman.setEnvironmentVariable(\"token\", jsonResp[\"access_token\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Swift",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/token",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/me",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"Test User1\",\r\n  \"Role\": 0,\r\n  \"OldPassword\": \"12345\",\r\n  \"Password\": \"123456\",\r\n  \"ConfirmPassword\": \"123456\"\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/user/5a0a0c8642d64b5096af8e8ad0749359",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"5a0a0c8642d64b5096af8e8ad0749359"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Login\": \"Swift1\",\r\n  \"NativeName\": \"Test User\",\r\n  \"Password\": \"12345\",\r\n  \"ConfirmPassword\": \"12345\"\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/user/5a0a0c8642d64b5096af8e8ad0749359",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"5a0a0c8642d64b5096af8e8ad0749359"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get maps",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"string\",\r\n  \"SwitchTimeout\": 0,\r\n  \"StartupTeamLives\": 0,\r\n  \"PoliceSpeed\": 0,\r\n  \"ThiefSpeed\": 0\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/map",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create game",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"d5d0d2e9cef14ef5abc95d872fc522a6\",\r\n  \"SwitchTimeout\": 10,\r\n  \"StartupTeamLives\": 2,\r\n  \"PoliceSpeed\": 1,\r\n  \"ThiefSpeed\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get games",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"string\",\r\n  \"SwitchTimeout\": 0,\r\n  \"StartupTeamLives\": 0,\r\n  \"PoliceSpeed\": 0,\r\n  \"ThiefSpeed\": 0\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/game",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get game by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"string\",\r\n  \"SwitchTimeout\": 0,\r\n  \"StartupTeamLives\": 0,\r\n  \"PoliceSpeed\": 0,\r\n  \"ThiefSpeed\": 0\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/game/5665d87ad9904b1d897e796f13ab90cc",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"5665d87ad9904b1d897e796f13ab90cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get games of user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"string\",\r\n  \"SwitchTimeout\": 0,\r\n  \"StartupTeamLives\": 0,\r\n  \"PoliceSpeed\": 0,\r\n  \"ThiefSpeed\": 0\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/games?start=1&count=1",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete game",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "IShipAuthToken={{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"string\",\r\n  \"SwitchTimeout\": 0,\r\n  \"StartupTeamLives\": 0,\r\n  \"PoliceSpeed\": 0,\r\n  \"ThiefSpeed\": 0\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/game/5665d87ad9904b1d897e796f13ab90cc",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"game",
+						"5665d87ad9904b1d897e796f13ab90cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get maps(s)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"123\",\r\n  \"MapId\": \"string\",\r\n  \"SwitchTimeout\": 0,\r\n  \"StartupTeamLives\": 0,\r\n  \"PoliceSpeed\": 0,\r\n  \"ThiefSpeed\": 0\r\n}"
+				},
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/maps",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maps by user id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "IShipAuthToken={{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://52.191.9.145:8085/api/user/9b6a34b84e764185ab7e9bb94079f585/maps",
+					"protocol": "http",
+					"host": [
+						"52",
+						"191",
+						"9",
+						"145"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"user",
+						"9b6a34b84e764185ab7e9bb94079f585",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
